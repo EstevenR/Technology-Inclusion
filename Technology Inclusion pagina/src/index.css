@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Technology Inclusion Brand Colors - HSL format */
+    --ti-orange: 18 100% 50%;           /* #FF6600 */
+    --ti-orange-light: 24 100% 60%;     /* #FF8533 */
+    --ti-orange-dark: 16 100% 40%;      /* #CC5200 */
+    
+    /* Neutral Colors */
+    --ti-gray: 210 4% 46%;              /* #727272 */
+    --ti-gray-light: 210 20% 96%;       /* #F5F7FA */
+    --ti-gray-dark: 210 11% 15%;        /* #1F2937 */
+    
+    /* 21st.dev inspired modern colors - Enhanced for better readability */
+    --background: 222 84% 4%;           /* Deeper dark for better contrast */
+    --foreground: 210 40% 96%;          /* Softer white for comfort */
+    
+    --card: 222 47% 8%;                 /* Slightly lighter cards for content visibility */
+    --card-foreground: 210 40% 95%;
+    
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 95%;
+    
+    --primary: 18 100% 55%;             /* Slightly brighter orange for better visibility */
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 217 32% 12%;           /* Darker secondary for subtle elements */
+    --secondary-foreground: 210 25% 80%; /* Better contrast for secondary text */
+    
+    --muted: 217 32% 12%;
+    --muted-foreground: 215 16% 70%;    /* Higher contrast for muted text */
+    
+    --accent: 217 32% 15%;
+    --accent-foreground: 210 40% 92%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 32% 15%;              /* Subtle but visible borders */
+    --input: 217 32% 12%;
+    --ring: 18 100% 55%;                /* Match primary */
+    
+    --radius: 0.75rem;
+    
+    /* Enhanced gradients for better content backdrop */
+    --gradient-bg: linear-gradient(135deg, hsl(222 84% 4%) 0%, hsl(217 32% 8%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 84% 4%) 0%, hsl(217 32% 6%) 50%, hsl(222 84% 4%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(217 32% 12% / 0.6) 0%, hsl(222 47% 8% / 0.9) 100%);
+    
+    /* Refined shadows */
+    --shadow-glow: 0 0 30px hsl(var(--ti-orange) / 0.12);
+    --shadow-card: 0 8px 32px hsl(222 84% 4% / 0.4);
+
+    --sidebar-background: 222 84% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 18 100% 50%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 32% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 17%;
+    --sidebar-ring: 18 100% 50%;
+  }
+
+  .dark {
+    /* Same colors for dark mode - it's our default */
+  }
+  
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 5%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 84% 5%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    
+    --gradient-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(214 32% 95%) 50%, hsl(210 40% 98%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8) 0%, hsl(210 40% 98% / 0.9) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-bg);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* 21st.dev inspired typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-weight: 600;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--ti-orange));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--ti-orange-dark));
+  }
+}
+
+@layer components {
+  /* Enhanced glass effects for better content visibility */
+  .glass-card {
+    @apply backdrop-blur-xl border;
+    background: var(--gradient-card);
+    border-color: hsl(var(--border));
+  }
+  
+  /* Refined hover animations */
+  .hover-scale {
+    @apply transition-all duration-300 hover:scale-[1.02];
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  /* Enhanced text gradients with better readability */
+  .text-gradient {
+    @apply bg-gradient-to-r from-foreground via-muted-foreground to-primary bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-primary to-ti-orange-light bg-clip-text text-transparent;
+  }
+  
+  /* Content containers for better readability */
+  .content-container {
+    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8;
+  }
+  
+  /* Enhanced focus states */
+  .focus-enhanced {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  
+  /* Modern button base */
+  .btn-modern {
+    @apply relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-xl;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ti-orange focus-visible:ring-offset-2;
+  }
+}
+
+/* Custom styles for date input icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0; /* Make it invisible */
+  position: absolute; /* Position over the input */
+  width: 100%; /* Cover the input width */
+  height: 100%; /* Cover the input height */
+  top: 0;
+  left: 0;
+  cursor: pointer; /* Show it's clickable */
+  z-index: 1; /* Ensure it's above the custom icon */
+}
+
+/* Ensure the custom icon is visible underneath and not clickable itself */
+.relative > input[type="date"] + .absolute {
+  pointer-events: none; /* Ensure clicks pass through to the native picker */
+  z-index: 0; /* Place custom icon below the invisible native picker */
+}
+
+/* This helps to ensure the native calendar picker's appearance is consistent with dark themes */
+input[type="date"] {
+  color-scheme: dark;
+}
