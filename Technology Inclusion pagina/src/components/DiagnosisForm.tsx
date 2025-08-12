@@ -285,7 +285,6 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
     if (currentStep < totalSteps) {
       setCurrentStep(prev => prev + 1);
     } else {
-      // On the last step, the button triggers the final form submission
       handleSubmit(processSubmit)();
     }
   };
