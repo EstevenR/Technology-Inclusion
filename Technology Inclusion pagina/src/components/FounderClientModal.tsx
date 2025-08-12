@@ -45,42 +45,6 @@ const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose
         <div className="absolute inset-0 rounded-2xl border-2 border-ti-orange/50 animate-pulse pointer-events-none" />
         
         <div className="relative p-8">
-import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Crown, CheckCircle, Zap } from 'lucide-react';
-
-interface FounderClientModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose }) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Aquí se podría añadir la lógica de envío de datos a un backend
-    setIsSubmitted(true);
-  };
-
-  const handleClose = () => {
-    onClose();
-    // Resetea el estado del formulario después de un breve retraso para la animación de cierre
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 300);
-  };
-
-  return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-card/80 backdrop-blur-xl border-ti-orange/30 text-white p-0 rounded-2xl overflow-hidden max-w-md">
-        {/* Animated Glowing Border */}
-        <div className="absolute inset-0 rounded-2xl border-2 border-ti-orange/50 animate-pulse pointer-events-none" />
-        
-        <div className="relative p-8">
           {!isSubmitted ? (
             <>
               <DialogHeader className="text-center mb-6">

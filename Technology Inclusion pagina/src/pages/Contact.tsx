@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MapPin, Clock, MessageSquare, Linkedin, Instagram, Send, CheckCircle } from "lucide-react";
-import { AgendamientoModal } from "@/components/AgendamientoModal";
+import { FormspreeModal } from "@/components/FormspreeModal";
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,6 +19,7 @@ const Contact = () => {
     message: ""
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalKey, setModalKey] = useState(0);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
@@ -311,10 +312,16 @@ const Contact = () => {
       </section>
 
       <Footer />
-      <AgendamientoModal 
+      <FormspreeModal 
+        key={modalKey}
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={() => {
+          setIsModalOpen(false);
+          setModalKey(prevKey => prevKey + 1);
+        }} 
         formspreeId="xpwljjea"
+        title="Agenda tu Consultoría Gratuita"
+        description="Déjanos tus datos y te contactaremos para coordinar una sesión de 45 minutos."
       />
     </div>;
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Zap } from 'lucide-react';
+import { FormspreeModal } from './FormspreeModal';
 
 /**
  * Navigation Component - 21st.dev inspired design
@@ -13,6 +14,8 @@ import { Menu, X, Zap } from 'lucide-react';
  */
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for the consultation modal
+  const [modalKey, setModalKey] = useState(0); // Key to force modal re-mount
   const location = useLocation();
 
   const navigation = [
@@ -62,6 +65,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
+              onClick={() => setIsModalOpen(true)} // Open modal on click
               className="bg-ti-orange hover:bg-ti-orange-dark text-white btn-modern hover-glow"
             >
               <Zap className="w-4 h-4 mr-2" />
@@ -103,6 +107,10 @@ const Navigation = () => {
                 ))}
                 <div className="pt-4 border-t border-white/10">
                   <Button
+                    onClick={() => {
+                      setIsModalOpen(true); // Open modal on click
+                      setIsMenuOpen(false); // Close mobile menu
+                    }}
                     className="w-full bg-ti-orange hover:bg-ti-orange-dark text-white btn-modern"
                   >
                     <Zap className="w-4 h-4 mr-2" />
@@ -114,6 +122,18 @@ const Navigation = () => {
           )}
         </div>
       </div>
+      {/* Consultation Modal */}
+      <FormspreeModal 
+        key={modalKey} // Add key to force re-mount
+        isOpen={isModalOpen} 
+        onClose={() => {
+          setIsModalOpen(false);
+          setModalKey(prevKey => prevKey + 1); // Increment key on close
+        }} 
+        formspreeId="xpwljjea" // The ID from the contact page
+        title="Agenda tu Consultoría Gratuita"
+        description="Déjanos tus datos y nos pondremos en contacto para agendar una sesión."
+      />
     </nav>
   );
 };

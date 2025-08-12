@@ -12,10 +12,15 @@ import {
   Users,
   Globe,
   Zap,
-  BookOpen
+  BookOpen,
+  MessageSquare
 } from "lucide-react";
+import { useState } from 'react';
+import { ContactChoiceModal } from '@/components/ContactChoiceModal';
 
 const About = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [modalKey, setModalKey] = useState(0); // Key to force modal re-mount
   const values = [
     {
       icon: Heart,
@@ -226,15 +231,28 @@ const About = () => {
             conversemos sobre cómo podemos ayudarte.
           </p>
           <Button 
+            onClick={() => setIsContactModalOpen(true)}
             style={{ backgroundColor: "rgba(6, 5, 22, 1)", color: "#fff" }}
             className="hover:brightness-90"
           >
+            <MessageSquare className="w-5 h-5 mr-2" />
             Iniciemos una Conversación
           </Button>
         </div>
       </section>
 
       <Footer />
+
+      <ContactChoiceModal
+        key={modalKey}
+        isOpen={isContactModalOpen}
+        onClose={() => {
+          setIsContactModalOpen(false);
+          setModalKey(prevKey => prevKey + 1);
+        }}
+        whatsappNumber="+573245770680"
+        formspreeId="xpwljjea"
+      />
     </div>
   );
 };

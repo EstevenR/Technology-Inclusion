@@ -353,7 +353,7 @@ const Process = () => {
       <Footer />
 
       {isDiagnosisModalOpen && (
-        <DiagnosisForm onClose={() => setIsDiagnosisModalOpen(false)} />
+        <DiagnosisForm isOpen={isDiagnosisModalOpen} onClose={() => setIsDiagnosisModalOpen(false)} />
       )}
     </div>
   );
