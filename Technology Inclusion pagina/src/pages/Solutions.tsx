@@ -19,8 +19,16 @@ import {
   CheckCircle,
   ArrowRight
 } from "lucide-react";
+import { useState } from 'react';
+import { FormspreeModal } from '@/components/FormspreeModal';
+import { ContactChoiceModal } from '@/components/ContactChoiceModal';
 
 const Solutions = () => {
+  const [isFormspreeModalOpen, setIsFormspreeModalOpen] = useState(false);
+  
+  const [solutionOfInterest, setSolutionOfInterest] = useState('');
+  const [isContactChoiceModalOpen, setIsContactChoiceModalOpen] = useState(false);
+  
   const solution1Features = [
     "Facturación electrónica DIAN",
     "CRM básico para clientes",
@@ -113,8 +121,8 @@ const Solutions = () => {
                     <h3 className="text-2xl font-bold text-card-foreground">Automatización de Procesos Administrativos</h3>
                   </div>
                   <div className="space-y-3">
-                    {solution1Features.map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-2">
+                    {solution1Features.map((feature) => (
+                      <div key={feature} className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-primary" />
                         <span className="text-sm text-foreground">{feature}</span>
                       </div>
@@ -150,6 +158,10 @@ const Solutions = () => {
                     <Button 
                       size="lg" 
                       className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground focus-enhanced"
+                      onClick={() => {
+                        setSolutionOfInterest("Automatización de Procesos Administrativos");
+                        setIsFormspreeModalOpen(true);
+                      }}
                     >
                       Solicitar Cotización <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
@@ -172,8 +184,8 @@ const Solutions = () => {
                     <h3 className="text-2xl font-bold text-white">Inteligencia de Negocios</h3>
                   </div>
                   <div className="space-y-3">
-                    {solution2Features.map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-2">
+                    {solution2Features.map((feature) => (
+                      <div key={feature} className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-ti-orange" />
                         <span className="text-sm text-foreground">{feature}</span>
                       </div>
@@ -206,7 +218,12 @@ const Solutions = () => {
                         <li>• Identificación de oportunidades de crecimiento</li>
                       </ul>
                     </div>
-                    <Button variant="orange" size="lg" className="w-full md:w-auto">
+                    <Button variant="orange" size="lg" className="w-full md:w-auto"
+                      onClick={() => {
+                        setSolutionOfInterest("Inteligencia de Negocios");
+                        setIsFormspreeModalOpen(true);
+                      }}
+                    >
                       Solicitar Cotización <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </CardContent>
@@ -228,8 +245,8 @@ const Solutions = () => {
                     <h3 className="text-2xl font-bold text-white">Automatización Avanzada con IA y RPA</h3>
                   </div>
                   <div className="space-y-3">
-                    {solution3Features.map((feature, index) => (
-                      <div key={index} className="flex items-center space-x-2">
+                    {solution3Features.map((feature) => (
+                      <div key={feature} className="flex items-center space-x-2">
                         <CheckCircle className="w-5 h-5 text-ti-orange" />
                         <span className="text-sm text-foreground">{feature}</span>
                       </div>
@@ -262,7 +279,12 @@ const Solutions = () => {
                         <li>• Automatización de hasta el 80% de tareas rutinarias</li>
                       </ul>
                     </div>
-                    <Button variant="hero" size="lg" className="w-full md:w-auto">
+                    <Button variant="hero" size="lg" className="w-full md:w-auto"
+                      onClick={() => {
+                        setSolutionOfInterest("Automatización Avanzada con IA y RPA");
+                        setIsFormspreeModalOpen(true);
+                      }}
+                    >
                       Contactar Especialista <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </CardContent>
@@ -292,8 +314,8 @@ const Solutions = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-none">
+            {benefits.map((benefit) => (
+              <Card key={benefit.title} className="text-center hover:shadow-lg transition-shadow border-none">
                 <CardHeader>
                   <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="w-8 h-8 text-ti-orange" />
@@ -363,13 +385,33 @@ const Solutions = () => {
             Agenda una consultoría gratuita y te ayudamos a identificar 
             la mejor estrategia de automatización para tu negocio.
           </p>
-          <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white">
+          <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white"
+            onClick={() => {
+              setIsContactChoiceModalOpen(true);
+            }}
+          >
             Agenda tu Consultoría Gratuita
           </Button>
         </div>
       </section>
 
       <Footer />
+
+      <FormspreeModal
+        isOpen={isFormspreeModalOpen}
+        onClose={() => setIsFormspreeModalOpen(false)}
+        formspreeId="xpwljjea" // Using the contact formspree ID
+        title="Solicitar Cotización"
+        description="Déjanos tus datos y te enviaremos una cotización personalizada."
+        initialMessage={`Estoy interesado en una cotización para: ${solutionOfInterest}`}
+      />
+
+      <ContactChoiceModal
+        isOpen={isContactChoiceModalOpen}
+        onClose={() => setIsContactChoiceModalOpen(false)}
+        whatsappNumber="+573245770680" // Confirmed WhatsApp number
+        formspreeId="xpwljjea" // Using the contact formspree ID
+      />
     </div>
   );
 };

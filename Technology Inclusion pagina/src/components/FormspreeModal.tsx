@@ -21,6 +21,7 @@ interface FormspreeModalProps {
   formspreeId: string;
   title?: string;
   description?: string;
+  initialMessage?: string;
 }
 
 export const FormspreeModal = ({ 
@@ -28,13 +29,14 @@ export const FormspreeModal = ({
   onClose, 
   formspreeId,
   title = "Contacta con Nosotros",
-  description = "Completa el formulario y nos pondremos en contacto contigo."
+  description = "Completa el formulario y nos pondremos en contacto contigo.",
+  initialMessage = ""
 }: FormspreeModalProps) => {
-  const [state, handleSubmit] = useForm(formspreeId);
+  const [state, handleSubmit, reset] = useForm(formspreeId);
 
   if (state.succeeded) {
     return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
+      <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
         <DialogContent className="sm:max-w-[425px]">
           <div className="py-6 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
@@ -43,7 +45,10 @@ export const FormspreeModal = ({
               Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.
             </p>
             <DialogFooter className="mt-6">
-              <Button onClick={onClose}>Cerrar</Button>
+              <Button onClick={() => {
+                reset();
+                onClose();
+              }}>Cerrar</Button>
             </DialogFooter>
           </div>
         </DialogContent>
@@ -52,13 +57,15 @@ export const FormspreeModal = ({
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* This hidden input passes the solution name to Formspree */}
+          <input type="hidden" name="solution" value={initialMessage} />
           <div>
             <Label htmlFor="name">Nombre Completo</Label>
             <Input id="name" name="name" type="text" required />
@@ -69,7 +76,7 @@ export const FormspreeModal = ({
           </div>
           <div>
             <Label htmlFor="message">Mensaje</Label>
-            <Textarea id="message" name="message" required />
+            <Textarea id="message" name="message" required defaultValue={initialMessage} />
           </div>
           {state.errors && state.errors.length > 0 && (
             <p className="text-sm text-red-500">
