@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // Add this line
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
@@ -8,6 +9,8 @@ import ProcessStep from "@/components/ProcessStep";
 import CompatibilityGrid from "@/components/CompatibilityGrid";
 import { CheckCircle, Star, Rocket, Crown, ArrowRight, HelpCircle, Clock, Shield, Users, Database, Brain, Zap, Bot, BarChart3, FileText, Target, Code, Smartphone, Globe, Monitor } from "lucide-react";
 
+import { DemoRequestModal } from "@/components/DemoRequestModal";
+
 /**
  * Página de Precios - Technology Inclusion
  * Diseño futurista inspirado en 21st.dev con:
@@ -17,6 +20,14 @@ import { CheckCircle, Star, Rocket, Crown, ArrowRight, HelpCircle, Clock, Shield
  * - Proceso de implementación visual
  */
 const Pricing = () => {
+  const [isDemoRequestModalOpen, setIsDemoRequestModalOpen] = useState(false);
+  const [demoRequestModalKey, setDemoRequestModalKey] = useState(0);
+
+  const handleOpenDemoRequestModal = () => {
+    setDemoRequestModalKey(prevKey => prevKey + 1);
+    setIsDemoRequestModalOpen(true);
+  };
+
   const packages = [{
     title: "EMPRENDEDOR",
     description: "Tu primer paso hacia la automatización inteligente",
@@ -275,7 +286,7 @@ const Pricing = () => {
               Agenda una demo personalizada y descubre cómo la IA puede 
               transformar tu operación en las próximas semanas.
             </p>
-            <Button variant="secondary" size="xl" className="bg-white text-ti-orange hover:bg-white/90 hover-scale">
+            <Button variant="secondary" size="xl" className="bg-white text-ti-orange hover:bg-white/90 hover-scale" onClick={handleOpenDemoRequestModal}>
               <Zap className="w-5 h-5 mr-2" />
               Agenda Demo en Vivo
             </Button>
@@ -287,6 +298,13 @@ const Pricing = () => {
       </section>
 
       <Footer />
+
+      <DemoRequestModal
+        key={demoRequestModalKey}
+        isOpen={isDemoRequestModalOpen}
+        onClose={() => setIsDemoRequestModalOpen(false)}
+        formspreeId="manbkkzr" // Assuming this is the correct Formspree ID for demo requests
+      />
     </div>;
 };
 export default Pricing;

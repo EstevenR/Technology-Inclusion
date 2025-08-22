@@ -19,15 +19,12 @@ const Contact = () => {
   const [submitError, setSubmitError] = useState(false);
 
   // State for various modals
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [consultationModalKey, setConsultationModalKey] = useState(0);
-  
+  const [consultationModalKey, setConsultationModalKey] = useState(1);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [quoteModalKey, setQuoteModalKey] = useState(0);
-
+  const [quoteModalKey, setQuoteModalKey] = useState(2);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isDemoRequestModalOpen, setIsDemoRequestModalOpen] = useState(false);
-  const [demoRequestModalKey, setDemoRequestModalKey] = useState(0);
+  const [demoRequestModalKey, setDemoRequestModalKey] = useState(3);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -177,17 +174,20 @@ const Contact = () => {
                     <CardContent className="space-y-6">
                       <div>
                         <Label htmlFor="helpType">Tipo de Consulta *</Label>
-                        <Select required name="helpType">
-                          <SelectTrigger id="helpType">
-                            <SelectValue placeholder="Selecciona un tipo..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Pregunta General">Pregunta General</SelectItem>
-                            <SelectItem value="Soporte Técnico">Soporte Técnico</SelectItem>
-                            <SelectItem value="Comentarios y Sugerencias">Comentarios y Sugerencias</SelectItem>
-                            <SelectItem value="Otro">Otro</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <select
+                          id="helpType"
+                          name="helpType"
+                          required
+                          className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          value={formData.helpType} // Use formData.helpType for value
+                          onChange={e => handleInputChange("helpType", e.target.value)} // Use handleInputChange for onChange
+                        >
+                          <option value="" disabled>Selecciona un tipo...</option>
+                          <option value="Pregunta General">Pregunta General</option>
+                          <option value="Soporte Técnico">Soporte Técnico</option>
+                          <option value="Comentarios y Sugerencias">Comentarios y Sugerencias</option>
+                          <option value="Otro">Otro</option>
+                        </select>
                       </div>
                       
                       <div>
