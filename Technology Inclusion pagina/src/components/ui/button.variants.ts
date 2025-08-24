@@ -17,6 +17,7 @@ export const buttonVariants = cva(
         hero: "bg-gradient-to-r from-ti-orange to-ti-orange-light text-white hover:from-ti-orange-dark hover:to-ti-orange shadow-lg hover:shadow-xl transform hover:scale-105",
         orange: "bg-ti-orange text-white hover:bg-ti-orange-dark shadow-md hover:shadow-lg",
         "orange-outline": "border-2 border-ti-orange text-ti-orange bg-transparent hover:bg-ti-orange hover:text-white",
+        blue: "bg-ti-blue text-white hover:bg-ti-blue/90",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -15,10 +15,36 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  <style>
+      .woot-widget-holder {
+        z-index: 9999 !important;
+      }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.chatwootSettings = {
+        darkMode: "light",
+      };
+    </script>
+    <script>
+      (function(d, t) {
+        var BASE_URL = "https://app.chatwoot.com";
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function() {
+          window.chatwootSDK.run({
+            websiteToken: 'idyANe1ZE8UZ6LsAb6SHkEkJ',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document, "script");
+    </script>
   </body>
 </html>

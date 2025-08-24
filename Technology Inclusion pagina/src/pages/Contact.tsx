@@ -25,17 +25,32 @@ const Contact = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isDemoRequestModalOpen, setIsDemoRequestModalOpen] = useState(false);
   const [demoRequestModalKey, setDemoRequestModalKey] = useState(3);
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    helpType: '',
+    message: ''
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(false);
 
-    const formData = new FormData(e.target as HTMLFormElement);
+    const formSpreeData = new FormData();
+    formSpreeData.append('fullName', formData.fullName);
+    formSpreeData.append('email', formData.email);
+    formSpreeData.append('helpType', formData.helpType);
+    formSpreeData.append('message', formData.message);
 
     const response = await fetch("https://formspree.io/f/mgvzrawk", {
       method: 'POST',
-      body: formData,
+      body: formSpreeData,
       headers: {
         'Accept': 'application/json'
       }
@@ -154,11 +169,11 @@ const Contact = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="fullName">Nombre Completo *</Label>
-                          <Input id="fullName" name="fullName" type="text" required />
+                          <Input id="fullName" name="fullName" type="text" required value={formData.fullName} onChange={e => handleInputChange('fullName', e.target.value)} />
                         </div>
                         <div>
                           <Label htmlFor="email">Correo Electrónico *</Label>
-                          <Input id="email" name="email" type="email" required />
+                          <Input id="email" name="email" type="email" required value={formData.email} onChange={e => handleInputChange('email', e.target.value)} />
                         </div>
                       </div>
                     </CardContent>
@@ -179,8 +194,8 @@ const Contact = () => {
                           name="helpType"
                           required
                           className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                          value={formData.helpType} // Use formData.helpType for value
-                          onChange={e => handleInputChange("helpType", e.target.value)} // Use handleInputChange for onChange
+                          value={formData.helpType}
+                          onChange={e => handleInputChange("helpType", e.target.value)}
                         >
                           <option value="" disabled>Selecciona un tipo...</option>
                           <option value="Pregunta General">Pregunta General</option>
@@ -192,7 +207,7 @@ const Contact = () => {
                       
                       <div>
                         <Label htmlFor="message">Mensaje *</Label>
-                        <Textarea id="message" name="message" rows={5} required placeholder="Cuéntanos más sobre tu proyecto o necesidades específicas..." />
+                        <Textarea id="message" name="message" rows={5} required placeholder="Cuéntanos más sobre tu proyecto o necesidades específicas..." value={formData.message} onChange={e => handleInputChange('message', e.target.value)} />
                       </div>
                       
                       <Button type="submit" className="w-full" disabled={isSubmitting}>

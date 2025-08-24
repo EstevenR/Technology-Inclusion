@@ -30,6 +30,7 @@ const config: Config = {
         "ti-gray": "hsl(var(--ti-gray))",
         "ti-gray-light": "hsl(var(--ti-gray-light))",
         "ti-gray-dark": "hsl(var(--ti-gray-dark))",
+        "ti-blue": "rgb(26, 35, 50)",
         
         /* Shadcn Colors */
         border: "hsl(var(--border))",

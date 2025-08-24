@@ -265,7 +265,19 @@ const Pricing = () => {
           
           <div className="text-center mt-12">
             <p className="mb-4 text-orange-600">¿Tienes más preguntas técnicas?</p>
-            <Button variant="orange-outline" size="lg" className="hover-scale">
+            <Button variant="orange-outline" size="lg" className="hover-scale" onClick={() => {
+              try {
+                if (window.$chatwoot) {
+                  window.$chatwoot.toggle();
+                } else {
+                  console.error('Chatwoot SDK not found. Is the script loaded?');
+                  alert('El servicio de chat no está disponible en este momento.');
+                }
+              } catch (error) {
+                console.error('Error opening Chatwoot widget:', error);
+                alert('Hubo un error al abrir el chat. Por favor, inténtalo de nuevo más tarde.');
+              }
+            }}>
               <Bot className="w-4 h-4 mr-2" />
               Hablar con un Ingeniero
             </Button>
@@ -286,9 +298,9 @@ const Pricing = () => {
               Agenda una demo personalizada y descubre cómo la IA puede 
               transformar tu operación en las próximas semanas.
             </p>
-            <Button variant="secondary" size="xl" className="bg-white text-ti-orange hover:bg-white/90 hover-scale" onClick={handleOpenDemoRequestModal}>
+            <Button variant="blue" size="xl" className="hover-scale" onClick={handleOpenDemoRequestModal}>
               <Zap className="w-5 h-5 mr-2" />
-              Agenda Demo en Vivo
+              Agenda tu Demo personalizado
             </Button>
             <p className="text-sm mt-4 opacity-90">
               45 min • Demo personalizada • Cotización inmediata • Sin compromiso
