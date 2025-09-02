@@ -13,9 +13,9 @@ services:
   - type: web
     name: frontend
     runtime: static
-    rootDir: "Technology Inclusion pagina"
-    buildCommand: "bun install && bun run build" # <-- CORRECCIÓN: Usando bun en lugar de npm
-    staticPublishPath: "./Technology Inclusion pagina/dist"
+    # Se elimina rootDir y se usa `cd` en el buildCommand para ser más explícitos
+    buildCommand: "cd \"Technology Inclusion pagina\" && bun install && bun run build"
+    staticPublishPath: "Technology Inclusion pagina/dist" # Esta ruta es relativa a la raíz del repo
     routes:
       - type: rewrite
         source: /*
