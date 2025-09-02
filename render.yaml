@@ -1,23 +1,21 @@
 services:
-  # Backend Service (Python/FastAPI)
+  # Backend (FastAPI) en plan FREE
   - type: web
     name: backend
     runtime: python
+    plan: free
     rootDir: backend
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /api/health
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.9
 
-  # Frontend Service (Static Site)
+  # Frontend (Vite) como sitio estático (gratis)
   - type: web
     name: frontend
     runtime: static
-    rootDir: "Technology Inclusion pagina" # Directorio donde se ejecuta el buildCommand
+    rootDir: "Technology Inclusion pagina"
     buildCommand: "npm install && npm run build"
-    staticPublishPath: "Technology Inclusion pagina/dist" # Directorio a servir, relativo a la raíz del repo
+    staticPublishPath: "./Technology Inclusion pagina/dist"
     routes:
       - type: rewrite
         source: /*
