@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+
 import { Textarea } from "./ui/textarea";
 import { Progress } from "./ui/progress";
 import { Zap, Rocket, X } from "lucide-react";
@@ -104,14 +104,7 @@ interface RenderSelectProps {
 }
 
 const RenderSelect: React.FC<RenderSelectProps> = ({ name, label, options, placeholder, control, errors }) => {
-    const [isOpen, setIsOpen] = useState(false); // State to control Radix Select open/close
-
-    useEffect(() => {
-        return () => {
-            // Close the select when the component unmounts
-            setIsOpen(false);
-        };
-    }, []);
+    // Removed isOpen state and useEffect as they are not needed for native select
 
     return (
         <div className="mb-4">
@@ -120,14 +113,17 @@ const RenderSelect: React.FC<RenderSelectProps> = ({ name, label, options, place
                 name={name}
                 control={control}
                 render={({ field }) => (
-                    <Select onValueChange={field.onChange} value={field.value as string} open={isOpen} onOpenChange={setIsOpen}>
-                        <SelectTrigger id={name} className="w-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-[0_0_0_2px_rgba(251,146,60,0.5)_inset]">
-                            <SelectValue placeholder={placeholder} />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {options.map(opt => <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>)}
-                        </SelectContent>
-                    </Select>
+                    <select
+                        id={name}
+                        {...field} // This spreads onChange, onBlur, value, and name
+                        className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        required // Assuming all these selects are required based on Zod schema
+                    >
+                        <option value="" disabled>{placeholder}</option> {/* Placeholder option */}
+                        {options.map(opt => (
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                    </select>
                 )}
             />
             {errors[name] && <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>}

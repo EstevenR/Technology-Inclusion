@@ -32,10 +32,7 @@ const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose
 
   const handleClose = () => {
     onClose();
-    // Resetea el estado del formulario después de un breve retraso para la animación de cierre
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 300);
+    setIsSubmitted(false);
   };
 
   return (
@@ -82,10 +79,10 @@ const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose
           ) : (
             <div className="text-center flex flex-col items-center justify-center h-full py-12">
               <CheckCircle className="w-20 h-20 text-green-400 mb-6 animate-pulse" />
-              <h2 className="text-2xl font-bold text-white mb-2">¡Bienvenido!</h2>
-              <p className="text-white/70 mb-8">
+              <DialogTitle className="text-2xl font-bold text-white mb-2">¡Bienvenido!</DialogTitle>
+              <DialogDescription className="text-white/70 mb-8">
                 Tu lugar está reservado. Nuestro equipo te contactará en breve.
-              </p>
+              </DialogDescription>
               <Button onClick={handleClose} className="bg-ti-orange hover:bg-ti-orange-dark text-white font-bold">
                 Cerrar
               </Button>

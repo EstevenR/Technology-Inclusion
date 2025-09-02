@@ -16,21 +16,17 @@ interface AgendamientoModalProps {
 }
 
 export const AgendamientoModal = ({ isOpen, onClose, successMessage }: AgendamientoModalProps) => {
-    console.log("AgendamientoModal: Component rendered. isOpen:", isOpen); // Add this
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <div className="py-6 text-center">
           <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
           <DialogTitle className="text-center text-2xl">¡Gracias!</DialogTitle>
-          <p className="text-lg text-muted-foreground">
+          <DialogDescription className="text-lg text-muted-foreground">
             {successMessage || "Tu solicitud ha sido recibida. Nos pondremos en contacto contigo pronto."}
-          </p>
+          </DialogDescription>
           <DialogFooter className="mt-6">
-            <Button onClick={() => {
-                console.log("AgendamientoModal: Close button clicked.");
-                onClose();
-            }}>Cerrar</Button>
+            <Button onClick={onClose}>Cerrar</Button>
           </DialogFooter>
         </div>
       </DialogContent>
