@@ -11,13 +11,13 @@ services:
       - key: PYTHON_VERSION
         value: 3.9
 
-  # Frontend Service (React/Vite Static Site)
-  - type: static # <-- Volviendo a 'static' para probar
+  # Frontend Service (Static Site)
+  - type: web
     name: frontend
-    rootDir: "Technology Inclusion pagina"
+    runtime: static
+    rootDir: "Technology Inclusion pagina" # Directorio donde se ejecuta el buildCommand
     buildCommand: "npm install && npm run build"
-    publishDir: "dist"
-    # Add rewrite rules for client-side routing (for React Router)
+    staticPublishPath: "Technology Inclusion pagina/dist" # Directorio a servir, relativo a la raíz del repo
     routes:
       - type: rewrite
         source: /*
