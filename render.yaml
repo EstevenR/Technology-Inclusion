@@ -12,7 +12,7 @@ services:
         value: 3.9
 
   # Frontend Service (React/Vite Static Site)
-  - type: static_site # <-- CORRECCIÓN: 'static' cambiado por 'static_site'
+  - type: static # <-- Volviendo a 'static' para probar
     name: frontend
     rootDir: "Technology Inclusion pagina"
     buildCommand: "npm install && npm run build"
