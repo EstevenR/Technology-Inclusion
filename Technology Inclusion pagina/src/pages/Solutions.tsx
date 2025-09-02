@@ -22,12 +22,16 @@ import {
 import { useState } from 'react';
 import { FormspreeModal } from '@/components/FormspreeModal';
 import { ContactChoiceModal } from '@/components/ContactChoiceModal';
+import { ConsultationModal } from '@/components/ConsultationModal';
+
 
 const Solutions = () => {
   const [isFormspreeModalOpen, setIsFormspreeModalOpen] = useState(false);
   
   const [solutionOfInterest, setSolutionOfInterest] = useState('');
   const [isContactChoiceModalOpen, setIsContactChoiceModalOpen] = useState(false);
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  
   
   const solution1Features = [
     "Facturación electrónica DIAN",
@@ -386,9 +390,7 @@ const Solutions = () => {
             la mejor estrategia de automatización para tu negocio.
           </p>
           <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white"
-            onClick={() => {
-              setIsContactChoiceModalOpen(true);
-            }}
+            onClick={() => setIsConsultationModalOpen(true)}
           >
             Agenda tu Consultoría Gratuita
           </Button>
@@ -412,6 +414,13 @@ const Solutions = () => {
         whatsappNumber="+573245770680" // Confirmed WhatsApp number
         formspreeId="xpwljjea" // Using the contact formspree ID
       />
+
+      <ConsultationModal
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
+
+      
     </div>
   );
 };

@@ -36,14 +36,14 @@ export const FormspreeModal = ({
 
   if (state.succeeded) {
     return (
-      <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
+      <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }} modal={false}>
         <DialogContent className="sm:max-w-[425px]">
           <div className="py-6 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <DialogTitle className="text-center text-2xl">¡Gracias!</DialogTitle>
-            <p className="text-lg text-muted-foreground">
+            <DialogDescription className="text-lg text-muted-foreground">
               Tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.
-            </p>
+            </DialogDescription>
             <DialogFooter className="mt-6">
               <Button onClick={() => {
                 reset();
@@ -57,7 +57,7 @@ export const FormspreeModal = ({
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }} modal={false}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>

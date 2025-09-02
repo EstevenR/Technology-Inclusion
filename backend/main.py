@@ -4,30 +4,23 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
 from fastapi.responses import FileResponse
 from fpdf import FPDF
-from fastapi import FastAPI
-from pydantic import BaseModel
-from fastapi.middleware.cors import CORSMiddleware
-from typing import List, Optional
-from fastapi.responses import FileResponse
-from fpdf import FPDF
 
 app = FastAPI()
 
 # Configuración de CORS para permitir solicitudes desde tu frontend de React
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://10.248.254.148:8080",
-    "http://localhost:8080",
-]
-
+# IMPORTANTE: Por seguridad, una vez que tu frontend esté desplegado, deberías cambiar "*"
+# por la URL de tu frontend en Render (ej: "https://tu-frontend.onrender.com")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/api/health")
+async def health_check():
+    return {"status": "ok"}
 
 class DiagnosisRequest(BaseModel):
     business_name: str

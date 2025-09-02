@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +11,7 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Linkedin, Instagram, Send, C
 import { FormspreeModal } from "@/components/FormspreeModal";
 import { VideoPlayerModal } from '@/components/VideoPlayerModal';
 import { DemoRequestModal } from '@/components/DemoRequestModal';
+import { ConsultationModal } from '@/components/ConsultationModal';
 
 const Contact = () => {
   // State for submission status
@@ -21,11 +22,16 @@ const Contact = () => {
   // State for various modals
   const [consultationModalKey, setConsultationModalKey] = useState(1);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [quoteModalKey, setQuoteModalKey] = useState(2);
+  const [quoteModalKey, setQuoteModalKey] = useState(102); // Changed from 2 to 102
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isDemoRequestModalOpen, setIsDemoRequestModalOpen] = useState(false);
   const [demoRequestModalKey, setDemoRequestModalKey] = useState(3);
+  const [videoModalKey, setVideoModalKey] = useState(200);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  
+  
+
+
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -66,8 +72,8 @@ const Contact = () => {
   };
 
   // --- Modal Handlers ---
+  // This handler will now open the new ConsultationFormComponent modal
   const handleOpenConsultationModal = () => {
-    setConsultationModalKey(prev => prev + 1);
     setIsConsultationModalOpen(true);
   };
 
@@ -85,6 +91,9 @@ const Contact = () => {
     setDemoRequestModalKey(prevKey => prevKey + 1);
     setIsDemoRequestModalOpen(true);
   };
+
+  
+
 
   const contactMethods = [
     { icon: Mail, title: "Email", value: "tecnologyinclusion@gmail.com", description: "Respuesta en menos de 4 horas", action: "mailto:tecnologyinclusion@gmail.com" },
@@ -130,11 +139,13 @@ const Contact = () => {
               <Card key={action.title} className="text-center hover:shadow-lg transition-shadow border-none">
                 <CardHeader>
                   <CardTitle className="text-xl text-white">{action.title}</CardTitle>
-                  <CardDescription className="text-base">{action.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button className="w-full" onClick={action.onClick}>{action.buttonText}</Button>
+                  <p className="text-base text-muted-foreground">{action.description}</p>
                 </CardContent>
+                <CardFooter>
+                  <Button className="w-full" onClick={action.onClick}>{action.buttonText}</Button>
+                </CardFooter>
               </Card>
             ))}
           </div>
@@ -235,7 +246,7 @@ const Contact = () => {
               
               {/* Contact Methods */}
               <div className="space-y-6">
-                {contactMethods.map((method) => <Card key={method.title} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                {contactMethods.map((method) => <Card key={`method-${method.title}`} className="border-none shadow-md hover:shadow-lg transition-shadow">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="w-12 h-12 bg-ti-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -258,15 +269,7 @@ const Contact = () => {
       <Footer />
 
       {/* Modals */}
-      <FormspreeModal 
-        key={consultationModalKey}
-        isOpen={isConsultationModalOpen} 
-        onClose={() => setIsConsultationModalOpen(false)} 
-        formspreeId="xpwljjea"
-        title="Agenda tu Consultoría Gratuita"
-        description="Déjanos tus datos y te contactaremos para coordinar una sesión de 45 minutos."
-        initialMessage="Estoy interesado/a en agendar una consultoría gratuita."
-      />
+      
 
       <FormspreeModal 
         key={quoteModalKey}
@@ -279,6 +282,7 @@ const Contact = () => {
       />
 
       <VideoPlayerModal 
+        key={videoModalKey}
         isOpen={isVideoModalOpen} 
         onClose={() => setIsVideoModalOpen(false)} 
         onRequestDemo={handleRequestDemo}
@@ -291,6 +295,13 @@ const Contact = () => {
         onClose={() => setIsDemoRequestModalOpen(false)}
         formspreeId="manbkkzr"
       />
+
+      <ConsultationModal
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
+
+      
     </div>
   );
 };
