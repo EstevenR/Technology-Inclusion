@@ -44,13 +44,13 @@ const About = () => {
     },
     {
       icon: Target,
-      title: "Orientación a Resultados",
+      title: "Orientación a resultados",
       description: "Foco en el impacto medible. Cada implementación debe generar valor real y tangible para tu negocio."
     },
     {
       icon: BookOpen,
-      title: "Aprendizaje Continuo",
-      description: "Nos mantenemos actualizados en tecnologías y tendencias para ofrecer siempre soluciones de vanguardia a nuestras PyMEs."
+      title: "Aprendizaje continuo",
+      description: "Nos mantenemos actualizados en tecnologías y tendencias para ofrecer siempre soluciones de vanguardia a nuestras pymes."
     }
   ];
 
@@ -64,13 +64,13 @@ const About = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center mb-8">
             <img 
-              src="/lovable-uploads/8d6bf03c-ce21-44b9-b884-69677f5ee197.png" 
+              src="/assets/8d6bf03c-ce21-44b9-b884-69677f5ee197.png"
               alt="Technology Inclusion Logo" 
               className="h-16 md:h-20 w-auto"
             />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Sobre Nosotros
+            Sobre nosotros
           </h1>
           <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto text-muted-foreground">
             Conoce la historia, valores y visión detrás de Technology Inclusion
@@ -90,7 +90,7 @@ const About = () => {
                 <strong className="text-ti-orange">Aspiramos a un ecosistema empresarial</strong> donde la tecnología sea el principal aliado del crecimiento para cualquier emprendedor, sin importar el tamaño de su empresa o su nivel de conocimiento técnico.
               </p>
               <p className="text-xl text-ti-gray leading-relaxed">
-                <strong className="text-ti-orange">Para lograrlo,</strong> transformamos los procesos rutinarios de las PyMEs en ventajas competitivas a través de soluciones de automatización e inteligencia artificial accesibles, personalizadas y orientadas a resultados medibles.
+                <strong className="text-ti-orange">Para lograrlo,</strong> transformamos los procesos rutinarios de las pymes en ventajas competitivas a través de soluciones de automatización e inteligencia artificial accesibles, personalizadas y orientadas a resultados medibles.
               </p>
             </div>
           </div>
@@ -101,21 +101,21 @@ const About = () => {
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">99%</h3>
-              <p className="text-white/80">de empresas en Colombia son PyMEs</p>
+              <h3 className="text-3xl font-bold text-white mb-2">99 %</h3>
+              <p className="text-white/80">de las empresas en Colombia son pymes</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">67%</h3>
-              <p className="text-white/80">del empleo nacional depende de PyMEs</p>
+              <h3 className="text-3xl font-bold text-white mb-2">67 %</h3>
+              <p className="text-white/80">del empleo nacional depende de las pymes</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">23%</h3>
+              <h3 className="text-3xl font-bold text-white mb-2">23 %</h3>
               <p className="text-white/80">tiene procesos digitalizados</p>
             </div>
           </div>
@@ -127,7 +127,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestros Valores
+              Nuestros valores
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Los principios que guían cada decisión y cada proyecto que emprendemos
@@ -157,10 +157,10 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestro Equipo
+              Nuestro equipo
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Conoce a las personas apasionadas que hacen posible la transformación digital de las PyMEs
+              Conoce a las personas apasionadas que hacen posible la transformación digital de las pymes
             </p>
           </div>
 
@@ -172,7 +172,7 @@ const About = () => {
                     <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Users className="w-16 h-16" />
                     </div>
-                    <h3 className="text-2xl font-bold">Fundador & CEO</h3>
+                    <h3 className="text-2xl font-bold">Fundador y CEO</h3>
                   </div>
                 </div>
                 <div className="md:w-2/3 p-8">
@@ -181,7 +181,7 @@ const About = () => {
                       Brayan Steven Murillo Rivas
                     </CardTitle>
                     <CardDescription className="text-lg text-primary/90">
-                      Fundador, CEO y Consultor Principal
+                      Fundador, CEO y consultor principal
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -196,12 +196,12 @@ const About = () => {
                       <h4 className="text-white font-semibold mb-3">Trayectoria destacada:</h4>
                       <div className="space-y-3">
                         <p className="text-white/90 leading-relaxed">
-                          <strong className="text-white">Automatización & No-Code:</strong> Implementé bots, integraciones Zabbix–HubSpot 
-                          y flujos no-code que redujeron en más del 40% el tiempo de soporte en un ISP local.
+                          <strong className="text-white">Automatización y no-code:</strong> Implementé bots, integraciones Zabbix–HubSpot
+                          y flujos no-code que redujeron en más del 40 % el tiempo de soporte en un ISP local.
                         </p>
                         <p className="text-white/90 leading-relaxed">
-                          <strong className="text-white">Monitoreo y telemetría:</strong> Integré dashboards de telemetría y sistemas 
-                          de alertas proactivas que mantienen operativos +1,000 dispositivos MikroTik, routers y antenas Cambium.
+                          <strong className="text-white">Monitoreo y telemetría:</strong> Integré paneles de telemetría y sistemas
+                          de alertas proactivas que mantienen operativos más de 1000 dispositivos MikroTik, enrutadores y antenas Cambium.
                         </p>
                       </div>
                     </div>
@@ -209,7 +209,7 @@ const About = () => {
                       <h4 className="text-white font-semibold mb-2">Mi misión personal</h4>
                       <p className="text-white/90 leading-relaxed">
                         Que ningún emprendedor se sienta excluido del mundo digital por falta de recursos técnicos. 
-                        Creo firmemente que la IA y la automatización pueden nivelar el terreno de juego para las PyMEs latinoamericanas.
+                        Creo firmemente que la IA y la automatización pueden nivelar el terreno de juego para las pymes latinoamericanas.
                       </p>
                     </div>
                   </CardContent>
@@ -227,7 +227,7 @@ const About = () => {
             ¿Compartimos la misma visión?
           </h2>
           <p className="text-xl mb-8 font-light">
-            Si crees que tu PyME merece crecer con tecnología de clase mundial, 
+            Si crees que tu pyme merece crecer con tecnología de clase mundial,
             conversemos sobre cómo podemos ayudarte.
           </p>
           <Button 
@@ -236,7 +236,7 @@ const About = () => {
             className="hover:brightness-90"
           >
             <MessageSquare className="w-5 h-5 mr-2" />
-            Iniciemos una Conversación
+            Iniciemos una conversación
           </Button>
         </div>
       </section>

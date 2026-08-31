@@ -46,7 +46,7 @@ const ConsultationForm: React.FC = () => {
         <div className="max-w-3xl w-full space-y-8 bg-card p-10 rounded-xl shadow-lg">
           <div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-foreground">
-              Agenda tu Consultoría Gratuita
+              Agenda tu consultoría gratuita
             </h2>
             <p className="mt-2 text-center text-sm text-muted-foreground">
               Completa tus datos para agendar una sesión personalizada y discutir tu diagnóstico.

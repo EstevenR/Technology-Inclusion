@@ -63,7 +63,7 @@ export const ContactChoiceModal = ({
               onClick={handleFormClick} 
               className="w-full bg-blue-500 hover:bg-blue-600 text-white"
             >
-              <Mail className="mr-2 h-5 w-5" /> Enviar un Mensaje
+              <Mail className="mr-2 h-5 w-5" /> Enviar un mensaje
             </Button>
           </div>
         </DialogContent>
@@ -74,7 +74,7 @@ export const ContactChoiceModal = ({
         isOpen={showFormModal}
         onClose={handleFormModalClose}
         formspreeId={formspreeId}
-        title="Envíanos un Mensaje"
+        title="Envíanos un mensaje"
         description="Completa el formulario y nos pondremos en contacto contigo."
       />
     </>

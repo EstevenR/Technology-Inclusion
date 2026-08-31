@@ -69,7 +69,7 @@ const Navigation = () => {
               className="bg-ti-orange hover:bg-ti-orange-dark text-white btn-modern hover-glow"
             >
               <Zap className="w-4 h-4 mr-2" />
-              Consultoría Gratuita
+              Consultoría gratuita
             </Button>
           </div>
 
@@ -114,7 +114,7 @@ const Navigation = () => {
                     className="w-full bg-ti-orange hover:bg-ti-orange-dark text-white btn-modern"
                   >
                     <Zap className="w-4 h-4 mr-2" />
-                    Consultoría Gratuita
+                    Consultoría gratuita
                   </Button>
                 </div>
               </div>
@@ -131,7 +131,7 @@ const Navigation = () => {
           setModalKey(prevKey => prevKey + 1); // Increment key on close
         }} 
         formspreeId="xpwljjea" // The ID from the contact page
-        title="Agenda tu Consultoría Gratuita"
+        title="Agenda tu consultoría gratuita"
         description="Déjanos tus datos y nos pondremos en contacto para agendar una sesión."
       />
     </nav>

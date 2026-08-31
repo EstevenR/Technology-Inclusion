@@ -25,7 +25,7 @@ function FloatingPaths({ position }: { position: number }) {
                 viewBox="0 0 696 316"
                 fill="none"
             >
-                <title>Background Paths</title>
+                <title>Trazos de fondo</title>
                 {paths.map((path) => (
                     <motion.path
                         key={path.id}

@@ -28,7 +28,7 @@ export const FormspreeModal = ({
   isOpen, 
   onClose, 
   formspreeId,
-  title = "Contacta con Nosotros",
+  title = "Contáctanos",
   description = "Completa el formulario y nos pondremos en contacto contigo.",
   initialMessage = ""
 }: FormspreeModalProps) => {
@@ -67,11 +67,11 @@ export const FormspreeModal = ({
           {/* This hidden input passes the solution name to Formspree */}
           <input type="hidden" name="solution" value={initialMessage} />
           <div>
-            <Label htmlFor="name">Nombre Completo</Label>
+            <Label htmlFor="name">Nombre completo</Label>
             <Input id="name" name="name" type="text" required />
           </div>
           <div>
-            <Label htmlFor="email">Correo Electrónico</Label>
+            <Label htmlFor="email">Correo electrónico</Label>
             <Input id="email" name="email" type="email" required />
           </div>
           <div>
@@ -86,7 +86,7 @@ export const FormspreeModal = ({
           <DialogFooter>
             <Button type="submit" disabled={state.submitting}>
               <Send className="w-4 h-4 mr-2" />
-              {state.submitting ? 'Enviando...' : 'Enviar Mensaje'}
+              {state.submitting ? 'Enviando...' : 'Enviar mensaje'}
             </Button>
           </DialogFooter>
         </form>

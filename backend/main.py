@@ -96,7 +96,7 @@ async def diagnose(request: DiagnosisRequest):
 
     # Puntuación por herramientas digitales actuales
     if "CRM" in request.current_digital_tools: mdi_score += 10
-    if "Bots-Automatizaciones" in request.current_digital_tools: mdi_score += 15
+    if "Bots y automatizaciones" in request.current_digital_tools: mdi_score += 15
     if "ERP" in request.current_digital_tools: mdi_score += 10
     if "Software contable" in request.current_digital_tools: mdi_score += 5
     if "Herramientas de Marketing Digital" in request.current_digital_tools: mdi_score += 5
@@ -120,14 +120,14 @@ async def diagnose(request: DiagnosisRequest):
     if "CRM" not in request.current_digital_tools:
         quick_wins.append("Considerar la implementación de un CRM para mejorar la gestión de clientes y el seguimiento de ventas.")
 
-    if "Bots-Automatizaciones" not in request.current_digital_tools:
+    if "Bots y automatizaciones" not in request.current_digital_tools:
         quick_wins.append("Explorar la automatización de tareas repetitivas con bots o RPA para liberar tiempo del personal.")
 
     # Mensaje general basado en el MDI
     if mdi_score < 30:
         quick_wins.append(f"Tu empresa, {request.business_name}, tiene un gran potencial de crecimiento digital. Enfócate en las automatizaciones básicas.")
     elif mdi_score < 60:
-        quick_wins.append(f"{request.business_name} está en un buen camino, pero aún hay áreas clave para digitalizar y optimizar.")
+        quick_wins.append(f"{request.business_name} va por buen camino, pero aún hay áreas clave para digitalizar y optimizar.")
     else:
         quick_wins.append(f"¡Felicidades, {request.business_name}! Tu empresa muestra una alta madurez digital. Continúa explorando innovaciones.")
 

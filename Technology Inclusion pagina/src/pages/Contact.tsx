@@ -96,21 +96,21 @@ const Contact = () => {
 
 
   const contactMethods = [
-    { icon: Mail, title: "Email", value: "tecnologyinclusion@gmail.com", description: "Respuesta en menos de 4 horas", action: "mailto:tecnologyinclusion@gmail.com" },
-    { icon: Phone, title: "WhatsApp / Teléfono", value: "+57 324 577 0680", description: "Lun - Vie, 8:00 AM - 6:00 PM", action: "tel:+573245770680" },
+    { icon: Mail, title: "Correo electrónico", value: "tecnologyinclusion@gmail.com", description: "Respuesta en menos de cuatro horas", action: "mailto:tecnologyinclusion@gmail.com" },
+    { icon: Phone, title: "WhatsApp / Teléfono", value: "+57 324 577 0680", description: "Lun. a vie., 8:00 a. m. a 6:00 p. m.", action: "tel:+573245770680" },
     { icon: MapPin, title: "Ubicación", value: "Medellín, Antioquia", description: "Servicio para Medellín", action: null },
-    { icon: Clock, title: "Horarios de Atención", value: "Lunes a Viernes", description: "8:00 AM - 6:00 PM (GMT-5)", action: null }
+    { icon: Clock, title: "Horario de atención", value: "Lunes a viernes", description: "8:00 a. m. a 6:00 p. m. (GMT-5)", action: null }
   ];
 
   const socialLinks = [
     { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/company/108065972/admin/dashboard/", description: "Síguenos para contenido empresarial" },
-    { icon: Instagram, name: "Instagram", url: "#", description: "Casos de éxito y tips" }
+    { icon: Instagram, name: "Instagram", url: "#", description: "Casos de éxito y consejos" }
   ];
 
   const quickActions = [
-    { title: "Consultoría Gratuita", description: "45 minutos para analizar tu negocio", buttonText: "Agendar Ahora", onClick: handleOpenConsultationModal },
-    { title: "Demo de Producto", description: "Ve una demostración en vivo", buttonText: "Solicitar Demo", onClick: handleOpenVideoModal },
-    { title: "Cotización Express", description: "Precio estimado en 24 horas", buttonText: "Solicitar Cotización", onClick: handleOpenQuoteModal }
+    { title: "Consultoría gratuita", description: "45 minutos para analizar tu negocio", buttonText: "Agendar ahora", onClick: handleOpenConsultationModal },
+    { title: "Demostración del producto", description: "Ve una demostración en vivo", buttonText: "Solicitar demostración", onClick: handleOpenVideoModal },
+    { title: "Cotización exprés", description: "Precio estimado en 24 horas", buttonText: "Solicitar cotización", onClick: handleOpenQuoteModal }
   ];
 
   return (
@@ -163,7 +163,7 @@ const Contact = () => {
                 <Card className="shadow-xl border-none text-center py-10">
                   <CardContent>
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h2 className="text-2xl font-bold mb-2">¡Mensaje Enviado!</h2>
+                    <h2 className="text-2xl font-bold mb-2">¡Mensaje enviado!</h2>
                     <p className="text-muted-foreground">Gracias por contactarnos. Te responderemos pronto.</p>
                   </CardContent>
                 </Card>
@@ -173,17 +173,17 @@ const Contact = () => {
                     <CardHeader>
                       <CardTitle className="text-2xl text-white flex items-center">
                         <User className="w-6 h-6 text-ti-orange mr-3" />
-                        Tus Datos
+                        Tus datos
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <Label htmlFor="fullName">Nombre Completo *</Label>
+                          <Label htmlFor="fullName">Nombre completo *</Label>
                           <Input id="fullName" name="fullName" type="text" required value={formData.fullName} onChange={e => handleInputChange('fullName', e.target.value)} />
                         </div>
                         <div>
-                          <Label htmlFor="email">Correo Electrónico *</Label>
+                          <Label htmlFor="email">Correo electrónico *</Label>
                           <Input id="email" name="email" type="email" required value={formData.email} onChange={e => handleInputChange('email', e.target.value)} />
                         </div>
                       </div>
@@ -194,12 +194,12 @@ const Contact = () => {
                     <CardHeader>
                       <CardTitle className="text-2xl text-white flex items-center">
                         <Mailbox className="w-6 h-6 text-ti-orange mr-3" />
-                        Tu Mensaje
+                        Tu mensaje
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <div>
-                        <Label htmlFor="helpType">Tipo de Consulta *</Label>
+                        <Label htmlFor="helpType">Tipo de consulta *</Label>
                         <select
                           id="helpType"
                           name="helpType"
@@ -209,9 +209,9 @@ const Contact = () => {
                           onChange={e => handleInputChange("helpType", e.target.value)}
                         >
                           <option value="" disabled>Selecciona un tipo...</option>
-                          <option value="Pregunta General">Pregunta General</option>
-                          <option value="Soporte Técnico">Soporte Técnico</option>
-                          <option value="Comentarios y Sugerencias">Comentarios y Sugerencias</option>
+                          <option value="Pregunta General">Pregunta general</option>
+                          <option value="Soporte Técnico">Soporte técnico</option>
+                          <option value="Comentarios y Sugerencias">Comentarios y sugerencias</option>
                           <option value="Otro">Otro</option>
                         </select>
                       </div>
@@ -223,7 +223,7 @@ const Contact = () => {
                       
                       <Button type="submit" className="w-full" disabled={isSubmitting}>
                         <Send className="w-4 h-4 mr-2" />
-                        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                        {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
                       </Button>
                       
                       {submitError && (
@@ -240,8 +240,8 @@ const Contact = () => {
             {/* Contact Information Column */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-ti-gray-dark mb-6">Otras Formas de Contactarnos</h2>
-                <p className="text-ti-gray text-lg mb-8">Prefiere hablar directamente? Aquí tienes todas nuestras vías de comunicación.</p>
+                <h2 className="text-3xl font-bold text-ti-gray-dark mb-6">Otras formas de contactarnos</h2>
+                <p className="text-ti-gray text-lg mb-8">¿Prefieres hablar directamente? Aquí tienes todas nuestras vías de comunicación.</p>
               </div>
               
               {/* Contact Methods */}
@@ -276,7 +276,7 @@ const Contact = () => {
         isOpen={isQuoteModalOpen} 
         onClose={() => setIsQuoteModalOpen(false)} 
         formspreeId="xpwljjea"
-        title="Solicitar Cotización Express"
+        title="Solicitar cotización exprés"
         description="Déjanos tus datos y te enviaremos una cotización estimada en menos de 24 horas."
         initialMessage="Me gustaría solicitar una cotización express."
       />

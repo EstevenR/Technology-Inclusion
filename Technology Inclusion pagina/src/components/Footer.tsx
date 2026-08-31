@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10">
                 <img
-                  src="/lovable-uploads/456e6cf6-49e2-4ce7-b5fe-fa940ffcbe9a.png"
+                  src="/assets/456e6cf6-49e2-4ce7-b5fe-fa940ffcbe9a.png"
                   alt="Technology Inclusion Logo"
                   className="w-full h-full object-contain filter brightness-0 invert"
                 />
@@ -34,7 +34,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+            <h3 className="text-lg font-semibold mb-4">Enlaces rápidos</h3>
             <div className="space-y-2">
               <Link to="/" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
                 Inicio
@@ -57,11 +57,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-ti-orange" />
-                <span className="text-muted-foreground">Tecnologyinclusion@gmail.com</span>
+                <span className="text-muted-foreground">tecnologyinclusion@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-ti-orange" />
-                <span className="text-muted-foreground">+57 3245770680</span>
+                <span className="text-muted-foreground">+57 324 577 0680</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} className="text-ti-orange" />
@@ -73,7 +73,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Technology Inclusion. Todos los derechos reservados.
+            © {new Date().getFullYear()} Technology Inclusion. Todos los derechos reservados.
           </p>
         </div>
       </div>

@@ -19,16 +19,16 @@ const problems = [
 ];
 
 const solutions = [
-  { icon: FileText, title: "Facturación Electrónica Automática", description: "Automatiza tu facturación y cumple con la normatividad." },
-  { icon: Users, title: "CRM Inteligente", description: "Centraliza la información de clientes y optimiza tus relaciones comerciales." },
-  { icon: Package, title: "Control de Inventario Inteligente", description: "Controla tu inventario en tiempo real y evita pérdidas." },
-  { icon: BarChart3, title: "Reportes y Analítica para Decisiones Clave", description: "Toma decisiones basadas en datos reales de tu negocio." },
+  { icon: FileText, title: "Facturación electrónica automática", description: "Automatiza tu facturación y cumple con la normativa." },
+  { icon: Users, title: "CRM inteligente", description: "Centraliza la información de clientes y optimiza tus relaciones comerciales." },
+  { icon: Package, title: "Control de inventario inteligente", description: "Controla tu inventario en tiempo real y evita pérdidas." },
+  { icon: BarChart3, title: "Reportes y analítica para decisiones clave", description: "Toma decisiones basadas en datos reales de tu negocio." },
 ];
 
 const valuePropositions = [
-    { Icon: Clock, title: "Implementación Rápida", desc: "Resultados visibles en semanas" },
-    { Icon: Target, title: "100% Personalizado", desc: "Adaptado a tu negocio específico" },
-    { Icon: Shield, title: "Soporte Continuo", desc: "Te acompañamos en la transformación" },
+    { Icon: Clock, title: "Implementación rápida", desc: "Resultados visibles en semanas" },
+    { Icon: Target, title: "100 % personalizado", desc: "Adaptado a tu negocio específico" },
+    { Icon: Shield, title: "Soporte continuo", desc: "Te acompañamos en la transformación" },
 ];
 
 const Home = () => {
@@ -61,7 +61,7 @@ const Home = () => {
           <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
               <span className="text-gradient">Inclusión Tecnológica </span><br />
-              <span className="text-gray-300">para PyMEs</span>
+              <span className="text-gray-300">para pymes</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
               Transformamos procesos manuales en ventajas competitivas.<br />
@@ -93,7 +93,7 @@ const Home = () => {
                 ¿Te identificas con estos desafíos?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Entendemos los retos únicos de las PyMEs. Estos son los desafíos más comunes que resolvemos para nuestros clientes.
+                Entendemos los retos únicos de las pymes. Estos son los desafíos más comunes que resolvemos para nuestros clientes.
               </p>
             </div>
             
@@ -118,7 +118,7 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                Tu Aliado Tecnológico
+                Tu aliado tecnológico
               </h2>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
                 Más que software, somos tu socio estratégico. Diseñamos soluciones de IA personalizadas que 

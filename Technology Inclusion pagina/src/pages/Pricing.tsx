@@ -31,50 +31,50 @@ const Pricing = () => {
   const packages = [{
     title: "EMPRENDEDOR",
     description: "Tu primer paso hacia la automatización inteligente",
-    features: ["Facturación electrónica DIAN automatizada", "CRM básico con seguimiento de clientes", "Control de inventario en tiempo real", "Dashboard de métricas básicas", "Backup automático en la nube", "Capacitación completa del equipo", "Soporte técnico por 3 meses", "Actualizaciones incluidas"],
+    features: ["Facturación electrónica DIAN automatizada", "CRM básico con seguimiento de clientes", "Control de inventario en tiempo real", "Panel de métricas básicas", "Copia de seguridad automática en la nube", "Capacitación completa del equipo", "Soporte técnico por tres meses", "Actualizaciones incluidas"],
     price: "Plan Emprendedor",
-    badge: "Más Popular",
-    ctaText: "Cotizar Paquete Emprendedor",
+    badge: "Más popular",
+    ctaText: "Cotizar paquete Emprendedor",
     variant: "featured" as const,
     icon: <Rocket className="w-6 h-6" />
   }, {
     title: "CRECIMIENTO",
     description: "Inteligencia de negocios para decisiones estratégicas",
-    features: ["Todo lo del paquete Emprendedor", "Analytics avanzado con IA", "Alertas inteligentes personalizadas", "Predicción de tendencias de venta", "Segmentación automática de clientes", "Reportes ejecutivos automatizados", "API para integraciones", "Soporte técnico por 6 meses", "Consultoría mensual incluida"],
+    features: ["Todo lo del paquete Emprendedor", "Analítica avanzada con IA", "Alertas inteligentes personalizadas", "Predicción de tendencias de venta", "Segmentación automática de clientes", "Reportes ejecutivos automatizados", "API para integraciones", "Soporte técnico por seis meses", "Consultoría mensual incluida"],
     price: "Plan Crecimiento",
     badge: "Recomendado",
-    ctaText: "Cotizar Paquete Crecimiento",
+    ctaText: "Cotizar paquete Crecimiento",
     variant: "default" as const,
     icon: <BarChart3 className="w-6 h-6" />
   }, {
     title: "EMPRESARIAL",
     description: "Automatización avanzada con IA y RPA de vanguardia",
-    features: ["Todo lo de paquetes anteriores", "IA avanzada para predicción de demanda", "RPA para automatización completa", "Integración con sistemas legacy", "Chatbots inteligentes con NLP", "Workflows automáticos complejos", "API empresarial personalizada", "Soporte técnico dedicado", "Roadmap de innovación trimestral"],
+    features: ["Todo lo de los paquetes anteriores", "IA avanzada para predicción de demanda", "RPA para automatización completa", "Integración con sistemas heredados", "Chatbots inteligentes con procesamiento del lenguaje natural", "Flujos de trabajo automáticos complejos", "API empresarial personalizada", "Soporte técnico dedicado", "Hoja de ruta de innovación trimestral"],
     price: "Plan Empresarial",
     badge: "Premium",
-    ctaText: "Contactar Especialista",
+    ctaText: "Contactar a un especialista",
     variant: "premium" as const,
     icon: <Crown className="w-6 h-6" />
   }];
   const implementationSteps = [{
     step: 1,
-    title: "Diagnóstico Integral",
+    title: "Diagnóstico integral",
     description: "Analizamos tu operación actual y mapeamos oportunidades de automatización con IA",
     icon: <Target className="w-5 h-5" />,
     isActive: false
   }, {
     step: 2,
-    title: "Diseño de Solución",
+    title: "Diseño de la solución",
     description: "Creamos la arquitectura técnica perfecta para tu negocio específico",
     icon: <Code className="w-5 h-5" />
   }, {
     step: 3,
-    title: "Desarrollo Ágil",
+    title: "Desarrollo ágil",
     description: "Implementamos por fases para que veas resultados desde la primera semana",
     icon: <Zap className="w-5 h-5" />
   }, {
     step: 4,
-    title: "Go Live & Optimización",
+    title: "Puesta en producción y optimización",
     description: "Lanzamiento asistido y optimización continua basada en datos reales",
     icon: <Rocket className="w-5 h-5" />
   }];
@@ -119,13 +119,13 @@ const Pricing = () => {
     answer: "No. Solo un compromiso mínimo de 3 meses para garantizar la adopción exitosa. Después, continúas porque ves valor real, no por obligación."
   }, {
     question: "¿Cómo funciona el soporte técnico?",
-    answer: "Soporte multicanal vía WhatsApp, email y videollamada. Plan Empresarial incluye ingeniero asignado y soporte técnico dedicado."
+    answer: "Soporte multicanal por WhatsApp, correo electrónico y videollamada. El plan Empresarial incluye un ingeniero asignado y soporte técnico dedicado."
   }, {
     question: "¿Se integra con mis sistemas actuales?",
-    answer: "Sí. Nos especializamos en integraciones complejas. Conectamos con SIIGO, Alegra, SAP, bases de datos legacy y cualquier API existente."
+    answer: "Sí. Nos especializamos en integraciones complejas. Conectamos con Siigo, Alegra, SAP, sistemas heredados y cualquier API existente."
   }, {
     question: "¿Qué pasa si mi industria es muy específica?",
-    answer: "Perfecto. Cada implementación es 100% personalizada. Los paquetes son marcos base que adaptamos completamente a tu sector e industria."
+    answer: "Perfecto. Cada implementación es 100 % personalizada. Los paquetes son marcos base que adaptamos completamente a tu sector e industria."
   }];
   return <div className="min-h-screen bg-background relative overflow-hidden">
       <Navigation />
@@ -138,10 +138,10 @@ const Pricing = () => {
           <div className="animate-fade-in">
             <Badge className="mb-6 bg-ti-orange/20 text-ti-orange border-ti-orange/30">
               <Brain className="w-4 h-4 mr-2" />
-              Powered by AI
+              Impulsado por IA
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-ti-orange-light bg-clip-text text-transparent">
-              Precios del Futuro
+              Precios del futuro
             </h1>
             <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto mb-8 text-white/90">
               Inversión inteligente en automatización que se paga sola
@@ -165,7 +165,7 @@ const Pricing = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Escoge tu Nivel de Automatización
+              Escoge tu nivel de automatización
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Cada paquete incluye IA, implementación completa y soporte. 
@@ -181,15 +181,15 @@ const Pricing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[{
             Icon: Shield,
-            title: "Garantía Total",
-            desc: "30 días para evaluar. No convence, te devolvemos todo."
+            title: "Garantía total",
+            desc: "Tienes 30 días para evaluar. Si no te convence, te devolvemos todo."
           }, {
             Icon: Clock,
-            title: "Sin Permanencia",
+            title: "Sin permanencia",
             desc: "Cancela cuando quieras después de 3 meses."
           }, {
             Icon: CheckCircle,
-            title: "Todo Incluido",
+            title: "Todo incluido",
             desc: "IA, desarrollo, implementación y capacitación."
           }].map(({
             Icon,
@@ -211,7 +211,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-950">
-              Proceso de Implementación
+              Proceso de implementación
             </h2>
             <p className="text-xl text-ti-orange">
               Metodología probada para una transformación exitosa
@@ -227,7 +227,7 @@ const Pricing = () => {
       {/* Technology Compatibility */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <CompatibilityGrid title="Compatible con tu Stack Tecnológico" subtitle="Nos integramos sin problemas con las herramientas que ya usas" items={compatibleTech} />
+          <CompatibilityGrid title="Compatible con tu entorno tecnológico" subtitle="Nos integramos sin problemas con las herramientas que ya usas" items={compatibleTech} />
         </div>
       </section>
 
@@ -236,7 +236,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl mb-4 font-extrabold text-zinc-900">
-              Preguntas Frecuentes
+              Preguntas frecuentes
             </h2>
             <p className="text-ti-orange text-2xl">
               Resolvemos las dudas más comunes sobre automatización con IA
@@ -279,7 +279,7 @@ const Pricing = () => {
               }
             }}>
               <Bot className="w-4 h-4 mr-2" />
-              Hablar con un Ingeniero
+              Hablar con un ingeniero
             </Button>
           </div>
         </div>
@@ -292,18 +292,18 @@ const Pricing = () => {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              ¿Listo para el Futuro de tu Negocio?
+              ¿Listo para el futuro de tu negocio?
             </h2>
             <p className="text-xl mb-8 font-light">
-              Agenda una demo personalizada y descubre cómo la IA puede 
+              Agenda una demostración personalizada y descubre cómo la IA puede
               transformar tu operación en las próximas semanas.
             </p>
             <Button variant="blue" size="xl" className="hover-scale" onClick={handleOpenDemoRequestModal}>
               <Zap className="w-5 h-5 mr-2" />
-              Agenda tu Demo personalizado
+              Agenda tu demostración personalizada
             </Button>
             <p className="text-sm mt-4 opacity-90">
-              45 min • Demo personalizada • Cotización inmediata • Sin compromiso
+              45 min • Demostración personalizada • Cotización inmediata • Sin compromiso
             </p>
           </div>
         </div>

@@ -79,7 +79,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
     <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-                <DialogTitle>Agenda tu Consultoría Gratuita</DialogTitle>
+                <DialogTitle>Agenda tu consultoría gratuita</DialogTitle>
                 <DialogDescription>
                     Completa tus datos para agendar una sesión personalizada.
                 </DialogDescription>
@@ -87,24 +87,24 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
                     <div>
-                        <Label htmlFor="name">Nombre Completo</Label>
+                        <Label htmlFor="name">Nombre completo</Label>
                         <Input id="name" type="text" value={formData.name} onChange={handleChange} required />
                     </div>
                     <div>
-                        <Label htmlFor="email">Correo Electrónico</Label>
+                        <Label htmlFor="email">Correo electrónico</Label>
                         <Input id="email" type="email" value={formData.email} onChange={handleChange} required />
                     </div>
                     <div>
-                        <Label htmlFor="phone">Número de Teléfono</Label>
+                        <Label htmlFor="phone">Número de teléfono</Label>
                         <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} required />
                     </div>
                     <div className="relative">
-                        <Label htmlFor="preferred_date">Fecha Preferida</Label>
+                        <Label htmlFor="preferred_date">Fecha preferida</Label>
                         <Input id="preferred_date" type="date" value={formData.preferred_date} onChange={handleChange} required className="pr-10" />
                         <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 mt-2 text-white pointer-events-none" size={20} aria-hidden="true" />
                     </div>
                     <div>
-                        <Label htmlFor="preferred_time">Hora Preferida</Label>
+                        <Label htmlFor="preferred_time">Hora preferida</Label>
                         <select
                           id="preferred_time"
                           required
@@ -125,13 +125,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     </div>
                 </div>
                 <div>
-                    <Label htmlFor="area_to_improve">Describa brevemente el área que desea mejorar</Label>
+                    <Label htmlFor="area_to_improve">Describe brevemente el área que deseas mejorar</Label>
                     <Textarea id="area_to_improve" value={formData.area_to_improve} onChange={handleChange} />
                 </div>
                 <DialogFooter>
                     <Button type="submit" className="w-full" disabled={formspreeState.submitting}>
                         <Send className="w-4 h-4 mr-2" />
-                        {formspreeState.submitting ? "Agendando..." : "Confirmar Consultoría"}
+                        {formspreeState.submitting ? "Agendando..." : "Confirmar consultoría"}
                     </Button>
                 </DialogFooter>
             </form>

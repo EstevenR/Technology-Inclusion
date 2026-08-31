@@ -38,11 +38,11 @@ const Solutions = () => {
     "CRM básico para clientes",
     "Notificaciones de stock bajo",
     "Reportes básicos de ventas",
-    "Backup automático de datos"
+    "Copia de seguridad automática de los datos"
   ];
 
   const solution2Features = [
-    "Dashboard de analítica avanzada",
+    "Panel de analítica avanzada",
     "Alertas inteligentes",
     "Análisis de tendencias",
     "Segmentación de clientes",
@@ -54,28 +54,28 @@ const Solutions = () => {
     "RPA para tareas repetitivas",
     "Integración de sistemas",
     "Chatbots inteligentes",
-    "Automatización de workflows"
+    "Automatización de flujos de trabajo"
   ];
 
   const benefits = [
     {
       icon: Clock,
-      title: "Ahorro de Tiempo",
+      title: "Ahorro de tiempo",
       description: "Hasta 40 horas semanales liberadas de tareas administrativas"
     },
     {
       icon: DollarSign,
-      title: "Reducción de Costos",
+      title: "Reducción de costos",
       description: "Disminuye errores costosos y optimiza recursos"
     },
     {
       icon: TrendingUp,
-      title: "Crecimiento Escalable",
+      title: "Crecimiento escalable",
       description: "Infraestructura que crece contigo sin complicaciones"
     },
     {
       icon: AlertTriangle,
-      title: "Menor Riesgo",
+      title: "Menor riesgo",
       description: "Cumplimiento normativo automático y respaldos seguros"
     }
   ];
@@ -96,10 +96,10 @@ const Solutions = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Nuestras Soluciones
+            Nuestras soluciones
           </h1>
           <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto mb-8 text-muted-foreground">
-            Soluciones a la Medida de tu Crecimiento
+            Soluciones a la medida de tu crecimiento
           </p>
           <p className="text-lg font-light max-w-3xl mx-auto text-muted-foreground">
             Desde la automatización de tareas básicas hasta la implementación de inteligencia artificial, 
@@ -121,8 +121,8 @@ const Solutions = () => {
                     <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                       <FileText className="w-10 h-10 text-primary-foreground" />
                     </div>
-                    <Badge variant="secondary" className="mb-2">Nivel Básico</Badge>
-                    <h3 className="text-2xl font-bold text-card-foreground">Automatización de Procesos Administrativos</h3>
+                    <Badge variant="secondary" className="mb-2">Nivel básico</Badge>
+                    <h3 className="text-2xl font-bold text-card-foreground">Automatización de procesos administrativos</h3>
                   </div>
                   <div className="space-y-3">
                     {solution1Features.map((feature) => (
@@ -163,11 +163,11 @@ const Solutions = () => {
                       size="lg" 
                       className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground focus-enhanced"
                       onClick={() => {
-                        setSolutionOfInterest("Automatización de Procesos Administrativos");
+                        setSolutionOfInterest("Automatización de procesos administrativos");
                         setIsFormspreeModalOpen(true);
                       }}
                     >
-                      Solicitar Cotización <ArrowRight className="w-4 h-4 ml-2" />
+                      Solicitar cotización <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </CardContent>
                 </div>
@@ -184,8 +184,8 @@ const Solutions = () => {
                     <div className="w-20 h-20 bg-ti-orange rounded-full flex items-center justify-center mx-auto mb-4">
                       <BarChart3 className="w-10 h-10 text-white" />
                     </div>
-                    <Badge variant="default" className="mb-2 bg-ti-orange">Nivel Intermedio</Badge>
-                    <h3 className="text-2xl font-bold text-white">Inteligencia de Negocios</h3>
+                    <Badge variant="default" className="mb-2 bg-ti-orange">Nivel intermedio</Badge>
+                    <h3 className="text-2xl font-bold text-white">Inteligencia de negocios</h3>
                   </div>
                   <div className="space-y-3">
                     {solution2Features.map((feature) => (
@@ -209,7 +209,7 @@ const Solutions = () => {
                     <div className="mb-6">
                       <h4 className="text-lg font-semibold text-foreground mb-3">¿Qué incluye?</h4>
                       <p className="text-foreground/80 mb-4">
-                        Dashboard de analítica avanzada con visualización de datos en tiempo real, alertas inteligentes y 
+                        Panel de analítica avanzada con visualización de datos en tiempo real, alertas inteligentes y
                         herramientas de análisis predictivo básico para anticiparte a las tendencias.
                       </p>
                     </div>
@@ -224,11 +224,11 @@ const Solutions = () => {
                     </div>
                     <Button variant="orange" size="lg" className="w-full md:w-auto"
                       onClick={() => {
-                        setSolutionOfInterest("Inteligencia de Negocios");
+                        setSolutionOfInterest("Inteligencia de negocios");
                         setIsFormspreeModalOpen(true);
                       }}
                     >
-                      Solicitar Cotización <ArrowRight className="w-4 h-4 ml-2" />
+                      Solicitar cotización <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </CardContent>
                 </div>
@@ -245,8 +245,8 @@ const Solutions = () => {
                     <div className="w-20 h-20 bg-ti-orange rounded-full flex items-center justify-center mx-auto mb-4">
                       <Bot className="w-10 h-10 text-white" />
                     </div>
-                    <Badge variant="default" className="mb-2 bg-ti-orange-dark">Nivel Avanzado</Badge>
-                    <h3 className="text-2xl font-bold text-white">Automatización Avanzada con IA y RPA</h3>
+                    <Badge variant="default" className="mb-2 bg-ti-orange-dark">Nivel avanzado</Badge>
+                    <h3 className="text-2xl font-bold text-white">Automatización avanzada con IA y RPA</h3>
                   </div>
                   <div className="space-y-3">
                     {solution3Features.map((feature) => (
@@ -260,7 +260,7 @@ const Solutions = () => {
                 <div className="md:w-2/3 p-8">
                   <CardHeader>
                     <CardTitle className="text-2xl text-foreground mb-2">
-                      Para PyMEs que buscan ventaja competitiva
+                      Para pymes que buscan una ventaja competitiva
                     </CardTitle>
                     <CardDescription className="text-lg text-foreground/90">
                       Soluciones de vanguardia para empresas que quieren liderar su sector con tecnología de punta.
@@ -280,16 +280,16 @@ const Solutions = () => {
                         <li>• Optimización máxima de recursos y procesos</li>
                         <li>• Predicción del futuro para mejores inversiones</li>
                         <li>• Experiencia de cliente superior y diferenciada</li>
-                        <li>• Automatización de hasta el 80% de tareas rutinarias</li>
+                        <li>• Automatización de hasta el 80 % de las tareas rutinarias</li>
                       </ul>
                     </div>
                     <Button variant="hero" size="lg" className="w-full md:w-auto"
                       onClick={() => {
-                        setSolutionOfInterest("Automatización Avanzada con IA y RPA");
+                        setSolutionOfInterest("Automatización avanzada con IA y RPA");
                         setIsFormspreeModalOpen(true);
                       }}
                     >
-                      Contactar Especialista <ArrowRight className="w-4 h-4 ml-2" />
+                      Contactar a un especialista <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </CardContent>
                 </div>
@@ -310,7 +310,7 @@ const Solutions = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-ti-orange mb-4">
-              Beneficios Transversales
+              Beneficios transversales
             </h2>
             <p className="text-xl text-ti-gray max-w-3xl mx-auto">
               Sin importar qué solución elijas, estos son los beneficios que experimentarás
@@ -346,7 +346,7 @@ const Solutions = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Tecnologías que Utilizamos
+              Tecnologías que utilizamos
             </h2>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
               Trabajamos con las herramientas más modernas y confiables del mercado
@@ -358,22 +358,22 @@ const Solutions = () => {
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Cpu className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Inteligencia Artificial</h3>
-              <p className="text-foreground/70">Machine Learning, NLP y análisis predictivo</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Inteligencia artificial</h3>
+              <p className="text-foreground/70">Aprendizaje automático, procesamiento del lenguaje natural y análisis predictivo</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Database className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Bases de Datos</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Bases de datos</h3>
               <p className="text-foreground/70">SQL Server, PostgreSQL, MongoDB</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MessageSquare className="w-8 h-8 text-ti-orange" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">APIs e Integraciones</h3>
-              <p className="text-foreground/70">REST, GraphQL, Webhooks</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2">API e integraciones</h3>
+              <p className="text-foreground/70">REST, GraphQL y webhooks</p>
             </div>
           </div>
         </div>
@@ -392,7 +392,7 @@ const Solutions = () => {
           <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white"
             onClick={() => setIsConsultationModalOpen(true)}
           >
-            Agenda tu Consultoría Gratuita
+            Agenda tu consultoría gratuita
           </Button>
         </div>
       </section>
@@ -403,7 +403,7 @@ const Solutions = () => {
         isOpen={isFormspreeModalOpen}
         onClose={() => setIsFormspreeModalOpen(false)}
         formspreeId="xpwljjea" // Using the contact formspree ID
-        title="Solicitar Cotización"
+        title="Solicitar cotización"
         description="Déjanos tus datos y te enviaremos una cotización personalizada."
         initialMessage={`Estoy interesado en una cotización para: ${solutionOfInterest}`}
       />

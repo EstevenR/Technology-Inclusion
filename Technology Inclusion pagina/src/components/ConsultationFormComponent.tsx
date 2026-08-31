@@ -125,28 +125,28 @@ export const ConsultationFormComponent: React.FC<ConsultationFormComponentProps>
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
       <div className="rounded-md shadow-sm -space-y-px">
-        <h3 className="text-xl font-bold mb-4 text-foreground border-b pb-2">Información de Contacto</h3>
+        <h3 className="text-xl font-bold mb-4 text-foreground border-b pb-2">Información de contacto</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4">
           <div>
-            <Label htmlFor="name">Nombre Completo</Label>
+            <Label htmlFor="name">Nombre completo</Label>
             <Input id="name" type="text" value={formData.name} onChange={handleChange} required />
           </div>
           <div>
-            <Label htmlFor="email">Correo Electrónico</Label>
+            <Label htmlFor="email">Correo electrónico</Label>
             <Input id="email" type="email" value={formData.email} onChange={handleChange} required />
           </div>
           <div>
-            <Label htmlFor="phone">Número de Teléfono</Label>
+            <Label htmlFor="phone">Número de teléfono</Label>
             <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} required />
           </div>
           {/* Removed email and phone JSX */}
           <div className="relative">
-            <Label htmlFor="preferred_date">Fecha Preferida</Label>
+            <Label htmlFor="preferred_date">Fecha preferida</Label>
             <Input id="preferred_date" type="date" value={formData.preferred_date} onChange={handleChange} required className="pr-10" />
             <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 mt-2 text-white pointer-events-none" size={20} aria-hidden="true" />
           </div>
           <div>
-            <Label htmlFor="preferred_time">Hora Preferida</Label>
+            <Label htmlFor="preferred_time">Hora preferida</Label>
             <select
               id="preferred_time"
               name="preferred_time"
@@ -165,7 +165,7 @@ export const ConsultationFormComponent: React.FC<ConsultationFormComponentProps>
       </div>
 
       <div className="rounded-md shadow-sm -space-y-px">
-        <h3 className="text-xl font-bold mb-4 text-foreground border-b pb-2">Tu Diagnóstico (Información pre-llenada)</h3>
+        <h3 className="text-xl font-bold mb-4 text-foreground border-b pb-2">Tu diagnóstico (información prellenada)</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-4 bg-muted/10 p-4 rounded-md">
           <div>
             <Label>Sector:</Label>
@@ -176,11 +176,11 @@ export const ConsultationFormComponent: React.FC<ConsultationFormComponentProps>
             <p className="text-muted-foreground">{formData.num_employees}</p>
           </div>
           <div>
-            <Label>Descripción del Negocio:</Label>
+            <Label>Descripción del negocio:</Label>
             <p className="text-muted-foreground text-sm">{formData.business_description}</p>
           </div>
           <div>
-            <Label>Objetivo Prioritario:</Label>
+            <Label>Objetivo prioritario:</Label>
             <p className="text-muted-foreground">{formData.priority_objective === "Otro" ? formData.other_priority_objective : formData.priority_objective}</p>
           </div>
           {/* Display other pre-filled info here if needed, but no input fields */}
@@ -189,7 +189,7 @@ export const ConsultationFormComponent: React.FC<ConsultationFormComponentProps>
 
       <div>
         <Button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={isLoading}>
-          {isLoading ? "Agendando..." : "Confirmar Consultoría"}
+          {isLoading ? "Agendando..." : "Confirmar consultoría"}
         </Button>
       </div>
       {error && <p className="text-red-500 text-center mb-4">{error}</p>}

@@ -51,7 +51,7 @@ const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose
                   </div>
                 </div>
                 <DialogTitle className="text-2xl font-bold text-white">
-                  Únete al Círculo de Fundadores
+                  Únete al círculo de fundadores
                 </DialogTitle>
                 <DialogDescription className="text-white/70">
                   Asegura tu acceso prioritario y beneficios exclusivos. Completa tus datos para ser parte del futuro.
@@ -59,20 +59,20 @@ const FounderClientModal: React.FC<FounderClientModalProps> = ({ isOpen, onClose
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white/80">Nombre Completo</Label>
-                  <Input id="name" placeholder="Ej: Ada Lovelace" className="bg-ti-gray-dark/50 border-ti-orange/20 focus:border-ti-orange" required />
+                  <Label htmlFor="name" className="text-white/80">Nombre completo</Label>
+                  <Input id="name" placeholder="Ej.: Ada Lovelace" className="bg-ti-gray-dark/50 border-ti-orange/20 focus:border-ti-orange" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white/80">Email de la Empresa</Label>
+                  <Label htmlFor="email" className="text-white/80">Correo electrónico de la empresa</Label>
                   <Input id="email" type="email" placeholder="tu@empresa.com" className="bg-ti-gray-dark/50 border-ti-orange/20 focus:border-ti-orange" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company" className="text-white/80">Nombre de la Empresa</Label>
-                  <Input id="company" placeholder="Ej: Babbage Inc." className="bg-ti-gray-dark/50 border-ti-orange/20 focus:border-ti-orange" required />
+                  <Label htmlFor="company" className="text-white/80">Nombre de la empresa</Label>
+                  <Input id="company" placeholder="Ej.: Babbage Inc." className="bg-ti-gray-dark/50 border-ti-orange/20 focus:border-ti-orange" required />
                 </div>
                 <Button type="submit" className="w-full bg-ti-orange hover:bg-ti-orange-dark text-white font-bold text-lg py-6 hover-glow">
                   <Zap className="w-5 h-5 mr-2" />
-                  Asegurar mi Lugar Exclusivo
+                  Asegurar mi lugar exclusivo
                 </Button>
               </form>
             </>

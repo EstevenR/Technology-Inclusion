@@ -23,27 +23,27 @@ const Process = () => {
     {
       number: "01",
       icon: Search,
-      title: "Diagnóstico y Mapeo de Procesos",
-      duration: "1-2 semanas",
+      title: "Diagnóstico y mapeo de procesos",
+      duration: "1–2 semanas",
       description: "Nos reunimos contigo para entender a fondo tu negocio. Mapeamos tus flujos de trabajo actuales para identificar los cuellos de botella y las oportunidades reales de automatización.",
       activities: [
         "Entrevistas con el equipo clave",
         "Análisis de procesos actuales",
         "Identificación de oportunidades",
         "Evaluación de sistemas existentes",
-        "Definición de objetivos y KPIs"
+        "Definición de objetivos e indicadores clave"
       ],
       deliverable: "Diagnóstico completo con recomendaciones priorizadas"
     },
     {
       number: "02",
       icon: Lightbulb,
-      title: "Diseño de la Solución Personalizada",
-      duration: "1-2 semanas",
+      title: "Diseño de la solución personalizada",
+      duration: "1–2 semanas",
       description: "Te presentamos un plan de automatización claro y realista. Definimos juntos los objetivos, el alcance y el impacto esperado antes de escribir una sola línea de código.",
       activities: [
         "Diseño de arquitectura de solución",
-        "Mockups y prototipos",
+        "Maquetas y prototipos",
         "Plan de implementación por fases",
         "Estimación de recursos y tiempos",
         "Definición de métricas de éxito"
@@ -53,8 +53,8 @@ const Process = () => {
     {
       number: "03",
       icon: Cog,
-      title: "Implementación Ágil y Acompañamiento",
-      duration: "4-12 semanas",
+      title: "Implementación ágil y acompañamiento",
+      duration: "4–12 semanas",
       description: "Desarrollamos e implementamos la solución por fases (empezando con tu MVP) para que veas resultados rápidos. Te capacitamos y nos aseguramos de que tu equipo adopte la nueva tecnología sin fricciones.",
       activities: [
         "Desarrollo en sprints cortos",
@@ -68,11 +68,11 @@ const Process = () => {
     {
       number: "04",
       icon: HeadphonesIcon,
-      title: "Soporte y Optimización Continua",
+      title: "Soporte y optimización continua",
       duration: "Permanente",
       description: "Somos tu socio a largo plazo. Monitoreamos los resultados y te proponemos mejoras continuas para que tu negocio nunca deje de ser eficiente.",
       activities: [
-        "Monitoreo de performance",
+        "Monitoreo del rendimiento",
         "Soporte técnico 24/7",
         "Actualizaciones y mejoras",
         "Análisis de nuevas oportunidades",
@@ -85,17 +85,17 @@ const Process = () => {
   const differentiators = [
     {
       icon: Target,
-      title: "Enfoque en Resultados",
-      description: "No vendemos tecnología, vendemos soluciones que generen impacto medible en tu negocio."
+      title: "Enfoque en resultados",
+      description: "No vendemos tecnología; vendemos soluciones que generan un impacto medible en tu negocio."
     },
     {
       icon: Users,
-      title: "Acompañamiento Humano",
+      title: "Acompañamiento humano",
       description: "Entendemos que cambiar es difícil. Te acompañamos en cada paso con paciencia y empatía."
     },
     {
       icon: Clock,
-      title: "Implementación Ágil",
+      title: "Implementación ágil",
       description: "Ves resultados rápidos con nuestro enfoque de implementación por fases pequeñas y funcionales."
     }
   ];
@@ -109,10 +109,10 @@ const Process = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Nuestro Proceso
+            Nuestro proceso
           </h1>
           <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto mb-8 text-muted-foreground">
-            Más que un Producto, una Transformación a tu Medida
+            Más que un producto, una transformación a tu medida
           </p>
           <p className="text-lg font-light max-w-3xl mx-auto text-muted-foreground">
             Cada proyecto es único, por eso seguimos una metodología probada que se adapta 
@@ -195,7 +195,7 @@ const Process = () => {
                           <div className="space-y-4">
                             <h4 className="font-semibold text-ti-orange">Metodología ágil</h4>
                             <p className="text-ti-gray">
-                              Trabajamos en ciclos cortos de 2-3 semanas. Cada ciclo entrega funcionalidad usable, 
+                              Trabajamos en ciclos cortos de dos a tres semanas. Cada ciclo entrega funcionalidad útil,
                               por lo que empiezas a ver beneficios desde las primeras semanas.
                             </p>
                           </div>
@@ -236,7 +236,7 @@ const Process = () => {
               ¿Qué nos hace diferentes?
             </h2>
             <p className="text-xl text-ti-gray max-w-3xl mx-auto">
-              Nuestro proceso está diseñado específicamente para PyMEs que quieren resultados reales, no solo tecnología bonita.
+              Nuestro proceso está diseñado específicamente para pymes que quieren resultados reales, no solo tecnología bonita.
             </p>
           </div>
           
@@ -263,7 +263,7 @@ const Process = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestra Metodología de Trabajo
+              Nuestra metodología de trabajo
             </h2>
           </div>
           
@@ -314,7 +314,7 @@ const Process = () => {
             </div>
             
             <div className="bg-gradient-to-br from-ti-orange/10 to-ti-orange-light/10 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-4">Garantía de Satisfacción</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Garantía de satisfacción</h3>
               <p className="text-white mb-6">
                 Estamos tan seguros de nuestro proceso que ofrecemos una garantía única: 
                 si después de la fase de diagnóstico no ves valor claro en nuestras recomendaciones, 
@@ -323,7 +323,7 @@ const Process = () => {
               <div className="bg-white p-4 rounded-lg border-l-4 border-ti-orange">
                 <p className="text-sm text-ti-gray">
                   <strong className="text-ti-orange">Nuestro compromiso:</strong> Solo avanzamos a la implementación 
-                  cuando estés 100% convencido de que la solución propuesta transformará tu negocio.
+                  cuando estés 100 % convencido de que la solución propuesta transformará tu negocio.
                 </p>
               </div>
             </div>
@@ -342,7 +342,7 @@ const Process = () => {
             y descubre las oportunidades ocultas en tu negocio.
           </p>
           <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white" onClick={() => setIsDiagnosisModalOpen(true)}>
-            Iniciar mi Diagnóstico <ArrowRight className="w-5 h-5 ml-2" />
+            Iniciar mi diagnóstico <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <p className="text-sm mt-4 opacity-90">
             Sin compromiso • Sin costo • Sin letra pequeña

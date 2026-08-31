@@ -31,14 +31,14 @@ const EMPLOYEE_RANGE_OPTIONS = [
     { value: "+50", label: "+50" },
 ];
 
-const KEY_AREAS_OPTIONS = ["Ventas y Marketing", "Operaciones y Producción", "Finanzas y Contabilidad", "Recursos Humanos", "Atención al Cliente", "Logística y Distribución"];
-const MANUAL_PROCESSES_OPTIONS = ["Facturación-Ventas", "Inventario", "Agenda-Reservas", "Servicio al cliente", "Contabilidad-Reportes"];
-const CUSTOMER_ACQUISITION_CHANNEL_OPTIONS = [{ value: "Redes Sociales", label: "Redes Sociales" }, { value: "Recomendaciones", label: "Recomendaciones" }, { value: "Publicidad Online", label: "Publicidad Online" }, { value: "Eventos/Ferias", label: "Eventos/Ferias" }, { value: "Tienda Física", label: "Tienda Física" }, { value: "Otro", label: "Otro" }];
-const CUSTOMER_COMMUNICATION_METHODS_OPTIONS = ["WhatsApp", "Email", "Llamadas telefónicas", "Redes Sociales", "Chat en sitio web", "Personalmente"];
+const KEY_AREAS_OPTIONS = ["Ventas y marketing", "Operaciones y producción", "Finanzas y contabilidad", "Recursos humanos", "Atención al cliente", "Logística y distribución"];
+const MANUAL_PROCESSES_OPTIONS = ["Facturación y ventas", "Inventario", "Agenda y reservas", "Servicio al cliente", "Contabilidad y reportes"];
+const CUSTOMER_ACQUISITION_CHANNEL_OPTIONS = [{ value: "Redes Sociales", label: "Redes sociales" }, { value: "Recomendaciones", label: "Recomendaciones" }, { value: "Publicidad Online", label: "Publicidad en línea" }, { value: "Eventos/Ferias", label: "Eventos y ferias" }, { value: "Tienda Física", label: "Tienda física" }, { value: "Otro", label: "Otro" }];
+const CUSTOMER_COMMUNICATION_METHODS_OPTIONS = ["WhatsApp", "Correo electrónico", "Llamadas telefónicas", "Redes sociales", "Chat en el sitio web", "Personalmente"];
 const DIAN_ELECTRONIC_INVOICING_OPTIONS = [{ value: "Sí", label: "Sí" }, { value: "No", label: "No" }, { value: "En proceso", label: "En proceso" }];
 const ADMIN_REPETITIVE_HOURS_OPTIONS = [{ value: "0-5", label: "0-5 horas" }, { value: "6-10", label: "6-10 horas" }, { value: "11-20", label: "11-20 horas" }, { value: "+20", label: "+20 horas" }];
 const ERROR_FREQUENCY_OPTIONS = [{ value: "< 5 %", label: "< 5 %" }, { value: "5-10 %", label: "5-10 %" }, { value: "> 10 %", label: "> 10 %" }, { value: "No lo sé", label: "No lo sé" }];
-const CURRENT_DIGITAL_TOOLS_OPTIONS = ["Ninguna (solo Excel)", "Software contable", "CRM", "POS", "Dashboard BI", "Bots-Automatizaciones"];
+const CURRENT_DIGITAL_TOOLS_OPTIONS = ["Ninguna (solo Excel)", "Software contable", "CRM", "POS", "Panel de BI", "Bots y automatizaciones"];
 const BIGGEST_OBSTACLE_OPTIONS = [{ value: "Falta de tiempo", label: "Falta de tiempo" }, { value: "Falta de conocimiento", label: "Falta de conocimiento" }, { value: "Costo de la tecnología", label: "Costo de la tecnología" }, { value: "Resistencia al cambio del equipo", label: "Resistencia al cambio del equipo" }, { value: "No saber por dónde empezar", label: "No saber por dónde empezar" }, { value: "Otro", label: "Otro" }];
 const INVESTMENT_BUDGET_OPTIONS = [{ value: "Menos de $1M COP", label: "Menos de $1M COP" }, { value: "$1M - $5M COP", label: "$1M - $5M COP" }, { value: "$5M - $10M COP", label: "$5M - $10M COP" }, { value: "Más de $10M COP", label: "Más de $10M COP" }];
 
@@ -49,10 +49,10 @@ const formSchema = z.object({
     other_sector: z.string().optional(),
     num_employees: z.string().min(1, "El tamaño del equipo es obligatorio."),
     contact_email: z.string().email("Ingresa un correo electrónico válido."),
-    whatsapp_number: z.string().min(10, "El número de WhatsApp es obligatorio y debe tener al menos 10 dígitos."),
+    whatsapp_number: z.string().min(10, "El número de WhatsApp es obligatorio y debe tener por lo menos 10 dígitos."),
     value_proposition: z.string().min(1, "La propuesta de valor es obligatoria.").max(500, "Máximo 500 caracteres."),
     key_areas: z.array(z.string()).min(1, "Selecciona al menos un área clave."),
-    manual_processes: z.array(z.string()).min(1, "Selecciona al menos un proceso manual.").max(2, "Elige máximo 2 procesos."),
+    manual_processes: z.array(z.string()).min(1, "Selecciona al menos un proceso manual.").max(2, "Elige dos procesos como máximo."),
     customer_acquisition_channel: z.string().min(1, "Este campo es obligatorio."),
     other_customer_acquisition_channel: z.string().optional(),
     customer_communication_methods: z.array(z.string()).min(1, "Selecciona al menos un método."),
@@ -236,7 +236,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
             setCurrentStep(prev => prev + 1);
         } catch (err) {
             console.error("Error al llamar al backend:", err);
-            setError("No pudimos obtener el diagnóstico. Por favor, asegúrate de que el backend esté corriendo y sea accesible.");
+            setError("No pudimos obtener el diagnóstico. Asegúrate de que el backend esté en ejecución y sea accesible.");
             setCurrentStep(prev => prev + 1);
         } finally {
             setIsLoading(false);
@@ -269,7 +269,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                     <Button variant="ghost" size="icon" className="absolute top-4 right-4" onClick={() => {
                     console.log("DiagnosisForm: Close button clicked.");
                     onClose();
-                }} aria-label="Close">
+                }} aria-label="Cerrar">
                         <X className="h-4 w-4" />
                     </Button>
 
@@ -283,7 +283,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
                         {currentStep === 1 && (
                             <div>
-                                <h2 className="text-2xl font-bold mb-4">Paso 1 · Perfil del Negocio</h2>
+                                <h2 className="text-2xl font-bold mb-4">Paso 1 · Perfil del negocio</h2>
                                 <p className="mb-6 text-muted-foreground">Cuéntanos sobre tu empresa.</p>
                                 <div className="mb-4">
                                     <Label htmlFor="business_name">Nombre del negocio</Label>
@@ -300,7 +300,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                                 )}
                                 <RenderSelect key={`num_employees-${currentStep}`} name="num_employees" label="Número total de empleados" options={EMPLOYEE_RANGE_OPTIONS} placeholder="Selecciona el número de empleados" control={control} errors={errors} />
                                 <div className="mb-4">
-                                    <Label htmlFor="contact_email">Correo Electrónico</Label>
+                                    <Label htmlFor="contact_email">Correo electrónico</Label>
                                     <Input id="contact_email" type="email" {...register("contact_email")} className="w-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-[0_0_0_2px_rgba(251,146,60,0.5)_inset]" />
                                     {errors.contact_email && <p className="text-red-500 text-sm mt-1">{errors.contact_email.message}</p>}
                                 </div>
@@ -314,10 +314,10 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
                         {currentStep === 2 && (
                             <div>
-                                <h2 className="text-2xl font-bold mb-4">Paso 2 · Operaciones Diarias</h2>
+                                <h2 className="text-2xl font-bold mb-4">Paso 2 · Operaciones diarias</h2>
                                 <p className="mb-6 text-muted-foreground">Entendiendo tus flujos de trabajo.</p>
                                 <div className="mb-4">
-                                    <Label htmlFor="value_proposition">Describe brevemente tu propuesta de valor (máx. 500 car.)</Label>
+                                    <Label htmlFor="value_proposition">Describe brevemente tu propuesta de valor (máx. 500 caracteres)</Label>
                                     <Textarea id="value_proposition" {...register("value_proposition")} maxLength={500} className="w-full focus:outline-none focus:ring-0 focus:ring-offset-0 focus:shadow-[0_0_0_2px_rgba(251,146,60,0.5)_inset]" />
                                     {errors.value_proposition && <p className="text-red-500 text-sm mt-1">{errors.value_proposition.message}</p>}
                                 </div>
@@ -327,7 +327,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                                     {errors.key_areas && <p className="text-red-500 text-sm mt-1">{errors.key_areas.message}</p>}
                                 </div>
                                 <div className="mb-4">
-                                    <Label>Procesos que aún manejas manualmente (marque hasta 2):</Label>
+                                    <Label>Procesos que aún manejas manualmente (marca hasta dos):</Label>
                                     <RenderCheckboxes fieldName='manual_processes' options={MANUAL_PROCESSES_OPTIONS} control={control} />
                                     {errors.manual_processes && <p className="text-red-500 text-sm mt-1">{errors.manual_processes.message}</p>}
                                 </div>
@@ -336,7 +336,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
                         {currentStep === 3 && (
                             <div>
-                                <h2 className="text-2xl font-bold mb-4">Paso 3 · Estrategia de Crecimiento</h2>
+                                <h2 className="text-2xl font-bold mb-4">Paso 3 · Estrategia de crecimiento</h2>
                                 <p className="mb-6 text-muted-foreground">Cómo llegas a tus clientes y te comunicas con ellos.</p>
                                 <RenderSelect key={`customer_acquisition_channel-${currentStep}`} name="customer_acquisition_channel" label="Principal canal de adquisición de clientes" options={CUSTOMER_ACQUISITION_CHANNEL_OPTIONS} placeholder="Selecciona un canal" control={control} errors={errors} />
                                 {watchedCustomerAcquisitionChannel === 'Otro' && (
@@ -356,7 +356,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
                         {currentStep === 4 && (
                             <div>
-                                <h2 className="text-2xl font-bold mb-4">Paso 4 · Situación Digital Actual</h2>
+                                <h2 className="text-2xl font-bold mb-4">Paso 4 · Situación digital actual</h2>
                                 <p className="mb-6 text-muted-foreground">Midiendo el punto de partida.</p>
                                 <RenderSelect key={`dian_electronic_invoicing-${currentStep}`} name="dian_electronic_invoicing" label="Estado de facturación electrónica DIAN" options={DIAN_ELECTRONIC_INVOICING_OPTIONS} placeholder="Selecciona una opción" control={control} errors={errors} />
                                 <RenderSelect key={`admin_repetitive_hours-${currentStep}`} name="admin_repetitive_hours" label="Horas semanales en tareas administrativas repetitivas" options={ADMIN_REPETITIVE_HOURS_OPTIONS} placeholder="Selecciona una opción" control={control} errors={errors} />
@@ -371,7 +371,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
                         {currentStep === 5 && (
                             <div>
-                                <h2 className="text-2xl font-bold mb-4">Paso 5 · Visión y Presupuesto</h2>
+                                <h2 className="text-2xl font-bold mb-4">Paso 5 · Visión y presupuesto</h2>
                                 <p className="mb-6 text-muted-foreground">Hacia dónde quieres ir y cómo planeas llegar.</p>
                                 <RenderSelect key={`biggest_obstacle-${currentStep}`} name="biggest_obstacle" label="Mayor obstáculo para implementar tecnología" options={BIGGEST_OBSTACLE_OPTIONS} placeholder="Selecciona una opción" control={control} errors={errors} />
                                 {watchedBiggestObstacle === 'Otro' && (
@@ -402,9 +402,9 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                                 {mdiScore !== null && !isLoading && !error && (
                                     <>
                                         <div className="flex justify-center mb-6"><Rocket className="w-20 h-20 text-primary" /></div>
-                                        <h2 className="text-3xl font-bold mb-4">¡Listo! Tu Índice de Madurez Digital es {mdiScore} / 100</h2>
+                                        <h2 className="text-3xl font-bold mb-4">¡Listo! Tu índice de madurez digital es {mdiScore} / 100</h2>
                                         <p className="text-xl text-muted-foreground mb-6">
-                                            {mdiScore < 50 ? "Hay grandes oportunidades de automatización." : "Estás en buen camino, pero aún hay potencial."}
+                                            {mdiScore < 50 ? "Hay grandes oportunidades de automatización." : "Vas por buen camino, pero aún hay potencial."}
                                         </p>
                                         <div className="text-lg text-card-foreground mb-8 leading-relaxed">
                                             <span className="font-bold">Mejoras inmediatas sugeridas:</span>
@@ -415,7 +415,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                                         <p className="text-md text-muted-foreground mb-8">En breve recibirás tu informe detallado por correo.</p>
                                         <div className="flex flex-col gap-4 items-center">
                                             <Button onClick={onClose}>Cerrar</Button>
-                                            <Button onClick={() => navigate('/consultoria')}>Agenda tu reunión de los resultados</Button>
+                                            <Button onClick={() => navigate('/consultoria')}>Agenda una reunión para revisar los resultados</Button>
                                         </div>
                                     </>
                                 )}
@@ -427,7 +427,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
                         <div className="flex justify-between mt-8">
                             <Button onClick={handlePrevious} disabled={currentStep === 1 || isLoading} variant="outline">Anterior</Button>
                             <Button onClick={handleNext} disabled={isLoading}>
-                                {isLoading ? "Cargando..." : (currentStep === totalSteps ? "Generar Diagnóstico" : "Siguiente")}
+                                {isLoading ? "Cargando..." : (currentStep === totalSteps ? "Generar diagnóstico" : "Siguiente")}
                             </Button>
                         </div>
                     )}

@@ -1,5 +1,8 @@
 {
-  "dependencies": {
-    "framer-motion": "^12.23.12"
+  "name": "technology-inclusion",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix \"Technology Inclusion pagina\" run dev",
+    "build": "npm --prefix \"Technology Inclusion pagina\" run build"
   }
 }

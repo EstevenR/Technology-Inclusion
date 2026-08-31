@@ -42,9 +42,9 @@ export const DemoRequestModal = ({
         {state.succeeded ? (
           <div className="py-6 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <DialogTitle className="text-center text-2xl">¡Solicitud Recibida!</DialogTitle>
+            <DialogTitle className="text-center text-2xl">¡Solicitud recibida!</DialogTitle>
             <DialogDescription className="text-lg text-muted-foreground">
-              Gracias por tu interés. Nos pondremos en contacto contigo pronto para agendar el demo.
+              Gracias por tu interés. Nos pondremos en contacto contigo pronto para agendar la demostración.
             </DialogDescription>
             <DialogFooter className="mt-6">
               <Button onClick={onClose}>Cerrar</Button>
@@ -53,26 +53,26 @@ export const DemoRequestModal = ({
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle>Solicita tu Demo Personalizado</DialogTitle>
-              <DialogDescription>Completa estos datos para preparar un demo enfocado en tus necesidades.</DialogDescription>
+              <DialogTitle>Solicita tu demostración personalizada</DialogTitle>
+              <DialogDescription>Completa estos datos para preparar una demostración enfocada en tus necesidades.</DialogDescription>
             </DialogHeader>
             <div className="max-h-[70vh] overflow-y-auto p-4">
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Hidden field for form type */}
-                <input type="hidden" name="form_type" value="Solicitud de Demo Personalizado" />
+                <input type="hidden" name="form_type" value="Solicitud de demostración personalizada" />
 
                 {/* Form Fields */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="full_name">Nombre Completo</Label>
+                    <Label htmlFor="full_name">Nombre completo</Label>
                     <Input id="full_name" name="full_name" type="text" required />
                   </div>
                   <div>
-                    <Label htmlFor="company_name">Nombre de la Empresa</Label>
+                    <Label htmlFor="company_name">Nombre de la empresa</Label>
                     <Input id="company_name" name="company_name" type="text" required />
                   </div>
                   <div>
-                    <Label htmlFor="email">Email de Contacto</Label>
+                    <Label htmlFor="email">Correo electrónico de contacto</Label>
                     <Input id="email" name="email" type="email" required />
                   </div>
                   <div>
@@ -82,22 +82,22 @@ export const DemoRequestModal = ({
                 </div>
                 
                 <div>
-                  <Label htmlFor="sector">Sector o Industria</Label>
-                  <Input id="sector" name="sector" type="text" placeholder="Ej: Retail, Servicios, Salud..." required />
+                  <Label htmlFor="sector">Sector o industria</Label>
+                  <Input id="sector" name="sector" type="text" placeholder="Ej.: comercio minorista, servicios, salud..." required />
                 </div>
 
                 <div>
-                  <Label htmlFor="process_to_improve">Proceso a Mejorar</Label>
+                  <Label htmlFor="process_to_improve">Proceso que deseas mejorar</Label>
                   <Textarea id="process_to_improve" name="process_to_improve" required rows={4} placeholder="Describe el proceso que más te duele o quieres mejorar." />
                 </div>
 
                 <div>
-                  <Label htmlFor="current_tools">Herramientas Actuales</Label>
-                  <Input id="current_tools" name="current_tools" type="text" placeholder="Ej: Excel, Papel, WhatsApp, etc." required />
+                  <Label htmlFor="current_tools">Herramientas actuales</Label>
+                  <Input id="current_tools" name="current_tools" type="text" placeholder="Ej.: Excel, papel, WhatsApp, etc." required />
                 </div>
 
                 <div>
-                  <Label htmlFor="main_objective">¿Cuál es tu Objetivo Principal?</Label>
+                  <Label htmlFor="main_objective">¿Cuál es tu objetivo principal?</Label>
                   <select
                     id="main_objective"
                     name="main_objective"
@@ -109,7 +109,7 @@ export const DemoRequestModal = ({
                     <option value="" disabled>Selecciona un objetivo...</option>
                     <option value="Reducir tiempo manual">Reducir tiempo manual</option>
                     <option value="Disminuir errores">Disminuir errores</option>
-                    <option value="Mejorar comunicacion con clientes">Mejorar la comunicación con clientes</option>
+                    <option value="Mejorar comunicación con clientes">Mejorar la comunicación con clientes</option>
                     <option value="Aumentar ventas">Aumentar ventas</option>
                     <option value="Otro">Otro</option>
                   </select>
@@ -124,7 +124,7 @@ export const DemoRequestModal = ({
                 <DialogFooter>
                   <Button type="submit" disabled={state.submitting} className="w-full">
                     <Send className="w-4 h-4 mr-2" />
-                    {state.submitting ? 'Enviando...' : 'Solicitar Demo'}
+                    {state.submitting ? 'Enviando...' : 'Solicitar demostración'}
                   </Button>
                 </DialogFooter>
               </form>
