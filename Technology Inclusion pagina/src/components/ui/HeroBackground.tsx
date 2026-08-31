@@ -12,7 +12,11 @@ function FloatingPaths({ position }: { position: number }) {
     }));
 
     return (
-        <div className="absolute inset-0 pointer-events-none">
+        <div
+            className={`absolute inset-0 pointer-events-none hero-background-motion ${
+                position < 0 ? "hero-background-motion-reverse" : ""
+            }`}
+        >
             <svg
                 className="w-full h-full text-orange-500"
                 viewBox="0 0 696 316"
