@@ -209,3 +209,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"] {
   color-scheme: dark;
 }
+
+/* Smooth hero motion: animate each SVG layer instead of every individual path. */
+@keyframes hero-background-drift {
+  0%,
+  100% {
+    transform: translate3d(-1%, 0, 0) scale(1.03);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translate3d(1%, -1%, 0) scale(1.05);
+    opacity: 1;
+  }
+}
+
+.hero-background-motion {
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: hero-background-drift 28s ease-in-out infinite;
+}
+
+.hero-background-motion-reverse {
+  animation-direction: reverse;
+  animation-duration: 34s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-motion,
+  .hero-background-motion-reverse {
+    animation: none;
+    transform: none;
+    opacity: 0.85;
+  }
+}
