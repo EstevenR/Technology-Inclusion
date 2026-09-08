@@ -1,13 +1,15 @@
 import { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import DiagnosisForm from "@/components/DiagnosisForm";
 import HeroBackground from "@/components/ui/HeroBackground";
+import { projectCases } from "@/data/projects";
 
 import {
   FileText, Eye, TrendingUp, Zap, Users, BarChart3,
-  Package, Clock, Target, Shield, Rocket, Crown, ChevronRight
+  Package, Clock, Target, Shield, ChevronRight, ArrowUpRight, Car, Scissors
 } from "lucide-react";
 
 // --- Datos constantes movidos fuera del componente ---
@@ -30,6 +32,11 @@ const valuePropositions = [
     { Icon: Target, title: "100 % personalizado", desc: "Adaptado a tu negocio específico" },
     { Icon: Shield, title: "Soporte continuo", desc: "Te acompañamos en la transformación" },
 ];
+
+const projectIcons = {
+  barberia: Scissors,
+  parking: Car,
+};
 
 const Home = () => {
   const [isDiagnosisModalOpen, setIsDiagnosisModalOpen] = useState(false);
@@ -113,6 +120,65 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Projects Section */}
+        <section className="bg-muted/20 py-24" aria-labelledby="projects-title">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div className="max-w-3xl">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                  Experiencia aplicada
+                </p>
+                <h2 id="projects-title" className="mb-5 text-4xl font-bold text-gradient md:text-5xl">
+                  Proyectos realizados
+                </h2>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Tecnología construida alrededor de operaciones reales, desde la agenda de una barbería hasta el control de un parqueadero.
+                </p>
+              </div>
+              <Button asChild variant="outline" className="w-fit border-ti-orange/40 hover:bg-ti-orange/10">
+                <Link to="/proyectos">
+                  Ver todos los proyectos
+                  <ArrowUpRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-2">
+              {projectCases.map((project) => {
+                const Icon = projectIcons[project.id];
+
+                return (
+                  <article key={project.id} className="group flex h-full flex-col rounded-3xl border border-white/10 bg-card p-8 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-ti-orange/30 hover:shadow-glow sm:p-10">
+                    <div className="mb-7 flex items-start justify-between gap-4">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ti-orange/10 text-ti-orange transition-colors group-hover:bg-ti-orange group-hover:text-white">
+                        <Icon className="h-7 w-7" aria-hidden="true" />
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-muted-foreground">
+                        {project.category}
+                      </span>
+                    </div>
+                    <p className="mb-2 text-sm font-medium text-ti-orange">{project.eyebrow}</p>
+                    <h3 className="mb-4 text-2xl font-bold text-white">{project.title}</h3>
+                    <p className="mb-8 flex-1 leading-relaxed text-muted-foreground">{project.summary}</p>
+                    <div className="mb-8 grid grid-cols-2 gap-4 border-y border-white/10 py-6">
+                      {project.outcomes.map((outcome) => (
+                        <div key={outcome.value}>
+                          <p className="text-lg font-bold text-ti-orange">{outcome.value}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{outcome.label}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <Link to={`/proyectos#${project.id}`} className="inline-flex items-center font-semibold text-ti-orange hover:text-ti-orange-light">
+                      Conoce el proyecto
+                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Solutions Section */}
         <section className="py-24 bg-muted/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -172,3 +238,4 @@ const Home = () => {
 };
 
 export default Home;
+

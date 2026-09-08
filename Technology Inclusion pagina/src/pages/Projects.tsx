@@ -1,0 +1,195 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { ArrowRight, Car, CheckCircle2, Scissors, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import DiagnosisForm from "@/components/DiagnosisForm";
+import { projectCases } from "@/data/projects";
+
+const projectIcons = {
+  barberia: Scissors,
+  parking: Car,
+};
+
+const Projects = () => {
+  const [isDiagnosisModalOpen, setIsDiagnosisModalOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const projectId = location.hash.slice(1);
+
+    if (!projectId) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+
+    const scrollToProject = window.setTimeout(() => {
+      document.getElementById(projectId)?.scrollIntoView({ block: "start" });
+    }, 0);
+
+    return () => window.clearTimeout(scrollToProject);
+  }, [location.hash]);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+
+      <main>
+        <section className="relative flex min-h-[58vh] items-center justify-center overflow-hidden pt-16">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-ti-orange/10" />
+          <div className="relative mx-auto max-w-5xl px-4 py-24 text-center sm:px-6 lg:px-8">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-ti-orange">
+              Experiencia aplicada
+            </p>
+            <h1 className="mb-6 text-4xl font-bold text-gradient md:text-6xl">
+              Proyectos realizados
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Soluciones construidas para negocios reales que necesitaban ordenar
+              su operación, reducir tareas manuales y tomar decisiones con mejor
+              información.
+            </p>
+          </div>
+        </section>
+
+        <section className="pb-20 lg:pb-28" aria-label="Casos de proyectos realizados">
+          <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
+            {projectCases.map((project, index) => {
+              const Icon = projectIcons[project.id];
+
+              return (
+                <article
+                  id={project.id}
+                  key={project.id}
+                  className="scroll-mt-24 overflow-hidden rounded-3xl border border-white/10 bg-card shadow-2xl"
+                >
+                  <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+                    <div
+                      className={`relative overflow-hidden p-8 sm:p-10 lg:p-12 ${
+                        index % 2 === 1 ? "lg:order-2" : ""
+                      }`}
+                    >
+                      <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-ti-orange/10 blur-3xl" />
+                      <div className="relative">
+                        <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-ti-orange text-white shadow-glow">
+                          <Icon className="h-8 w-8" aria-hidden="true" />
+                        </div>
+                        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                          {project.eyebrow}
+                        </p>
+                        <h2 className="mb-5 text-3xl font-bold text-white sm:text-4xl">
+                          {project.title}
+                        </h2>
+                        <p className="text-lg leading-relaxed text-muted-foreground">
+                          {project.summary}
+                        </p>
+
+                        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                          {project.outcomes.map((outcome) => (
+                            <div
+                              key={outcome.value}
+                              className="rounded-2xl border border-ti-orange/20 bg-ti-orange/5 p-5"
+                            >
+                              <p className="text-2xl font-bold text-ti-orange">
+                                {outcome.value}
+                              </p>
+                              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                {outcome.label}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`border-t border-white/10 bg-white/[0.02] p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12 ${
+                        index % 2 === 1 ? "lg:order-1 lg:border-l-0 lg:border-r" : ""
+                      }`}
+                    >
+                      <div className="space-y-8">
+                        <div>
+                          <p className="mb-2 text-sm font-semibold text-ti-orange">
+                            El reto
+                          </p>
+                          <p className="leading-relaxed text-muted-foreground">
+                            {project.challenge}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="mb-2 text-sm font-semibold text-ti-orange">
+                            Lo que construimos
+                          </p>
+                          <p className="leading-relaxed text-muted-foreground">
+                            {project.solution}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="mb-4 text-sm font-semibold text-ti-orange">
+                            Funciones principales
+                          </p>
+                          <ul className="grid gap-3 sm:grid-cols-2">
+                            {project.capabilities.map((capability) => (
+                              <li key={capability} className="flex items-start gap-3 text-sm text-foreground">
+                                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-ti-orange" aria-hidden="true" />
+                                <span>{capability}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 border-t border-white/10 pt-6">
+                          {project.technologies.map((technology) => (
+                            <span
+                              key={technology}
+                              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-muted-foreground"
+                            >
+                              {technology}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="bg-gradient-to-r from-ti-orange to-ti-orange-light py-16 text-white lg:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+            <Zap className="mx-auto mb-5 h-10 w-10" aria-hidden="true" />
+            <h2 className="mb-5 text-3xl font-bold md:text-4xl">
+              Tu proceso también puede ser más simple
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
+              Revisamos cómo trabajas hoy y te mostramos qué conviene automatizar primero.
+            </p>
+            <Button
+              variant="secondary"
+              size="xl"
+              className="text-ti-orange hover:bg-white"
+              onClick={() => setIsDiagnosisModalOpen(true)}
+            >
+              Agenda tu diagnóstico gratuito
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <DiagnosisForm
+        isOpen={isDiagnosisModalOpen}
+        onClose={() => setIsDiagnosisModalOpen(false)}
+      />
+    </div>
+  );
+};
+
+export default Projects;
+

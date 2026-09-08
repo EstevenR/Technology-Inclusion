@@ -22,6 +22,7 @@ const Navigation = () => {
     { name: 'Inicio', href: '/' },
     { name: 'Nosotros', href: '/sobre-nosotros' },
     { name: 'Soluciones', href: '/soluciones' },
+    { name: 'Proyectos', href: '/proyectos' },
     { name: 'Proceso', href: '/proceso' },
     { name: 'Precios', href: '/precios' },
     { name: 'Contacto', href: '/contacto' }
@@ -139,3 +140,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

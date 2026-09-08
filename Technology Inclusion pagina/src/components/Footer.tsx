@@ -45,6 +45,9 @@ const Footer = () => {
               <Link to="/soluciones" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
                 Soluciones
               </Link>
+              <Link to="/proyectos" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
+                Proyectos realizados
+              </Link>
               <Link to="/proceso" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
                 Proceso
               </Link>
@@ -82,3 +85,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
