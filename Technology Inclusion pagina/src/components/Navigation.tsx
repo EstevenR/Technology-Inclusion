@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, MessageCircle } from 'lucide-react';
-import { FormspreeModal } from './FormspreeModal';
+
+const WHATSAPP_NUMBER = '573245770680';
 
 /**
  * Navigation Component - 21st.dev inspired design
@@ -14,8 +15,6 @@ import { FormspreeModal } from './FormspreeModal';
  */
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for the consultation modal
-  const [modalKey, setModalKey] = useState(0); // Key to force modal re-mount
   const location = useLocation();
 
   const navigation = [
@@ -67,13 +66,15 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button
-              onClick={() => setIsModalOpen(true)} // Open modal on click
-              className="bg-ti-orange hover:bg-ti-orange/90 text-background btn-modern hover-glow"
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-glow inline-flex items-center justify-center rounded-md bg-ti-orange px-4 h-10 text-sm font-medium text-background transition-all duration-300 hover:bg-ti-orange/90"
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
+              <MessageCircle className="w-4 h-4 mr-2" aria-hidden="true" />
               Consultoría gratuita
-            </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -111,33 +112,20 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="pt-4 border-t border-border">
-              <Button
-                onClick={() => {
-                  setIsModalOpen(true); // Open modal on click
-                  setIsMenuOpen(false); // Close mobile menu
-                }}
-                className="w-full bg-ti-orange hover:bg-ti-orange/90 text-background btn-modern"
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex w-full items-center justify-center rounded-md bg-ti-orange px-4 h-10 text-sm font-medium text-background transition-all duration-300 hover:bg-ti-orange/90"
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-4 h-4 mr-2" aria-hidden="true" />
                 Consultoría gratuita
-              </Button>
+              </a>
             </div>
           </div>
         </div>
       )}
-
-      {/* Consultation Modal */}
-      <FormspreeModal 
-        key={modalKey} // Add key to force re-mount
-        isOpen={isModalOpen} 
-        onClose={() => {
-          setIsModalOpen(false);
-          setModalKey(prevKey => prevKey + 1); // Increment key on close
-        }} 
-        formspreeId="xpwljjea" // The ID from the contact page
-        title="Agenda tu consultoría gratuita"
-        description="Déjanos tus datos y nos pondremos en contacto para agendar una sesión."
-      />
     </nav>
   );
 };
