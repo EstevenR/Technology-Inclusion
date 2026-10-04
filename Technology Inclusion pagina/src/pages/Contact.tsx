@@ -97,7 +97,7 @@ const Contact = () => {
 
   const contactMethods = [
     { icon: Mail, title: "Correo electrónico", value: "contacto@inclusiontecnologica.com", description: "Respuesta en menos de cuatro horas", action: "mailto:contacto@inclusiontecnologica.com" },
-    { icon: Phone, title: "WhatsApp / Teléfono", value: "+57 324 577 0680", description: "Lun. a vie., 8:00 a. m. a 6:00 p. m.", action: "tel:+573245770680" },
+    { icon: Phone, title: "WhatsApp / Teléfono", value: "+57 324 577 0680", description: "Lun. a vie., 8:00 a. m. a 6:00 p. m.", action: "https://wa.me/573245770680" },
     { icon: MapPin, title: "Ubicación", value: "Medellín, Antioquia", description: "Servicio para Medellín", action: null },
     { icon: Clock, title: "Horario de atención", value: "Lunes a viernes", description: "8:00 a. m. a 6:00 p. m. (GMT-5)", action: null }
   ];
@@ -254,7 +254,7 @@ const Contact = () => {
                         </div>
                         <div className="flex-1">
                           <h3 className="font-semibold text-foreground mb-1">{method.title}</h3>
-                          {method.action ? <a href={method.action} className="text-ti-orange hover:text-ti-orange-dark font-medium block">{method.value}</a> : <p className="text-ti-orange font-medium">{method.value}</p>}
+                          {method.action ? <a href={method.action} {...(method.action.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-ti-orange hover:text-ti-orange-dark font-medium block">{method.value}</a> : <p className="text-ti-orange font-medium">{method.value}</p>}
                           <p className="text-muted-foreground text-sm">{method.description}</p>
                         </div>
                       </div>
