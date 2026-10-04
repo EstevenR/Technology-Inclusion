@@ -276,17 +276,18 @@ const Pricing = () => {
           <div className="text-center mt-12">
             <p className="mb-4 text-ti-orange-dark font-medium">¿Tienes más preguntas técnicas?</p>
             <Button variant="orange-outline" size="lg" className="hover-scale border-ti-orange-dark text-ti-orange-dark hover:bg-ti-orange-dark" onClick={() => {
+              // El widget de Chatwoot carga de forma asíncrona (script externo); si el
+              // visitante hace clic antes de que termine de cargar, caemos a WhatsApp
+              // en vez de dejarlo sin ninguna forma de contactarnos.
               try {
                 if (window.$chatwoot) {
                   window.$chatwoot.toggle();
-                } else {
-                  console.error('Chatwoot SDK not found. Is the script loaded?');
-                  alert('El servicio de chat no está disponible en este momento.');
+                  return;
                 }
               } catch (error) {
                 console.error('Error opening Chatwoot widget:', error);
-                alert('Hubo un error al abrir el chat. Por favor, inténtalo de nuevo más tarde.');
               }
+              window.open('https://wa.me/573245770680', '_blank', 'noopener,noreferrer');
             }}>
               <Bot className="w-4 h-4 mr-2" />
               Hablar con un ingeniero
