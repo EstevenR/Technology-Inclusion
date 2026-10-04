@@ -23,7 +23,7 @@ const Footer = () => {
               Automatizamos lo rutinario para que te enfoques en hacer crecer tu negocio.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-ti-orange transition-colors hover-scale">
+              <a href="https://www.linkedin.com/company/tecnologyinclusion/about/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-ti-orange transition-colors hover-scale">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-muted-foreground hover:text-ti-orange transition-colors hover-scale">
@@ -91,4 +91,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

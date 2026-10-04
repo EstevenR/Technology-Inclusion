@@ -103,7 +103,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/company/108065972/admin/dashboard/", description: "Síguenos para contenido empresarial" },
+    { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/company/tecnologyinclusion/about/", description: "Síguenos para contenido empresarial" },
     { icon: Instagram, name: "Instagram", url: "#", description: "Casos de éxito y consejos" }
   ];
 

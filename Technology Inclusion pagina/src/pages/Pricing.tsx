@@ -10,6 +10,7 @@ import CompatibilityGrid from "@/components/CompatibilityGrid";
 import { CheckCircle, Star, Rocket, Crown, ArrowRight, HelpCircle, Clock, Shield, Users, Database, Brain, Zap, Bot, BarChart3, FileText, Target, Code, Smartphone, Globe, Monitor } from "lucide-react";
 
 import { DemoRequestModal } from "@/components/DemoRequestModal";
+import { FormspreeModal } from "@/components/FormspreeModal";
 
 /**
  * Página de Precios - Technology Inclusion
@@ -22,10 +23,19 @@ import { DemoRequestModal } from "@/components/DemoRequestModal";
 const Pricing = () => {
   const [isDemoRequestModalOpen, setIsDemoRequestModalOpen] = useState(false);
   const [demoRequestModalKey, setDemoRequestModalKey] = useState(0);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteModalKey, setQuoteModalKey] = useState(0);
+  const [planOfInterest, setPlanOfInterest] = useState('');
 
   const handleOpenDemoRequestModal = () => {
     setDemoRequestModalKey(prevKey => prevKey + 1);
     setIsDemoRequestModalOpen(true);
+  };
+
+  const handleOpenQuoteModal = (planTitle: string) => {
+    setPlanOfInterest(planTitle);
+    setQuoteModalKey(prevKey => prevKey + 1);
+    setIsQuoteModalOpen(true);
   };
 
   const packages = [{
@@ -174,7 +184,7 @@ const Pricing = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {packages.map((pkg, index) => <TechCard key={index} title={pkg.title} description={pkg.description} features={pkg.features} price={pkg.price} badge={pkg.badge} ctaText={pkg.ctaText} variant={pkg.variant} icon={pkg.icon} onCtaClick={() => console.log(`CTA clicked: ${pkg.title}`)} className="h-full" />)}
+            {packages.map((pkg, index) => <TechCard key={index} title={pkg.title} description={pkg.description} features={pkg.features} price={pkg.price} badge={pkg.badge} ctaText={pkg.ctaText} variant={pkg.variant} icon={pkg.icon} onCtaClick={() => handleOpenQuoteModal(pkg.title)} className="h-full" />)}
           </div>
 
           {/* Value propositions with tech styling */}
@@ -316,6 +326,16 @@ const Pricing = () => {
         isOpen={isDemoRequestModalOpen}
         onClose={() => setIsDemoRequestModalOpen(false)}
         formspreeId="manbkkzr" // Assuming this is the correct Formspree ID for demo requests
+      />
+
+      <FormspreeModal
+        key={quoteModalKey}
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        formspreeId="xpwljjea"
+        title="Solicitar cotización"
+        description="Déjanos tus datos y te enviaremos una cotización personalizada."
+        initialMessage={`Estoy interesado en una cotización para: ${planOfInterest}`}
       />
     </div>;
 };
