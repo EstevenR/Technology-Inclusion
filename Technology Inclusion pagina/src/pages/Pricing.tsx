@@ -275,21 +275,15 @@ const Pricing = () => {
 
           <div className="text-center mt-12">
             <p className="mb-4 text-ti-orange-dark font-medium">¿Tienes más preguntas técnicas?</p>
-            <Button
-              variant="orange-outline"
-              size="lg"
-              className="hover-scale border-ti-orange-dark text-ti-orange-dark hover:bg-ti-orange-dark"
-              asChild
+            <a
+              href="https://wa.me/573245770680"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-scale inline-flex items-center justify-center gap-2 rounded-lg bg-ti-orange px-8 h-12 text-base font-semibold text-background shadow-md transition-all duration-300 hover:bg-ti-orange-light hover:shadow-lg"
             >
-              <a
-                href="https://wa.me/573245770680"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Bot className="w-4 h-4 mr-2" aria-hidden="true" />
-                Hablar con un ingeniero
-              </a>
-            </Button>
+              <Bot className="w-4 h-4" aria-hidden="true" />
+              Hablar con un ingeniero
+            </a>
           </div>
         </div>
       </section>
