@@ -155,8 +155,40 @@ const Contact = () => {
       {/* Main Content */}
       <section className="py-16 lg:py-24 bg-ti-gray-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {/* Contact Information Column */}
+            <div className="space-y-8">
+              <Card className="shadow-xl border-none">
+                <CardHeader>
+                  <CardTitle className="text-2xl text-card-foreground">
+                    Otras formas de <span className="text-ti-orange">contactarnos</span>
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    ¿Prefieres hablar directamente? Aquí tienes todas nuestras vías de comunicación.
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              {/* Contact Methods */}
+              <div className="space-y-6">
+                {contactMethods.map((method) => <Card key={`method-${method.title}`} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-12 h-12 bg-ti-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <method.icon className="w-6 h-6 text-ti-orange" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground mb-1">{method.title}</h3>
+                          {method.action ? <a href={method.action} {...(method.action.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-ti-orange hover:text-ti-orange-dark font-medium block">{method.value}</a> : <p className="text-ti-orange font-medium">{method.value}</p>}
+                          <p className="text-muted-foreground text-sm">{method.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>)}
+              </div>
+            </div>
+
             {/* Contact Form Column */}
             <div className="space-y-8">
               {isSubmitted ? (
@@ -235,32 +267,6 @@ const Contact = () => {
                   </Card>
                 </form>
               )}
-            </div>
-            
-            {/* Contact Information Column */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-ti-gray-dark mb-6">Otras formas de <span className="text-ti-orange">contactarnos</span></h2>
-                <p className="text-gray-600 text-lg mb-8">¿Prefieres hablar directamente? Aquí tienes todas nuestras vías de comunicación.</p>
-              </div>
-              
-              {/* Contact Methods */}
-              <div className="space-y-6">
-                {contactMethods.map((method) => <Card key={`method-${method.title}`} className="border-none shadow-md hover:shadow-lg transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-ti-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <method.icon className="w-6 h-6 text-ti-orange" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-foreground mb-1">{method.title}</h3>
-                          {method.action ? <a href={method.action} {...(method.action.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-ti-orange hover:text-ti-orange-dark font-medium block">{method.value}</a> : <p className="text-ti-orange font-medium">{method.value}</p>}
-                          <p className="text-muted-foreground text-sm">{method.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>)}
-              </div>
             </div>
           </div>
         </div>
