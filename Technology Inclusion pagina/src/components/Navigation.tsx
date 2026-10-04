@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { FormspreeModal } from './FormspreeModal';
 
 /**
@@ -71,7 +71,7 @@ const Navigation = () => {
               onClick={() => setIsModalOpen(true)} // Open modal on click
               className="bg-ti-orange hover:bg-ti-orange/90 text-background btn-modern hover-glow"
             >
-              <Zap className="w-4 h-4 mr-2" />
+              <MessageCircle className="w-4 h-4 mr-2" />
               Consultoría gratuita
             </Button>
           </div>
@@ -118,7 +118,7 @@ const Navigation = () => {
                 }}
                 className="w-full bg-ti-orange hover:bg-ti-orange/90 text-background btn-modern"
               >
-                <Zap className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-4 h-4 mr-2" />
                 Consultoría gratuita
               </Button>
             </div>
@@ -143,4 +143,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
