@@ -6,52 +6,54 @@
 @layer base {
   :root {
     /* Technology Inclusion Brand Colors - HSL format */
-    --ti-orange: 18 100% 50%;           /* #FF6600 */
+    /* El comentario decía #FF6600 pero el hue (18) no correspondía a ese hex; hsl(24 100% 50%) sí es #FF6600 */
+    --ti-orange: 24 100% 50%;           /* #FF6600 */
     --ti-orange-light: 24 100% 60%;     /* #FF8533 */
-    --ti-orange-dark: 16 100% 40%;      /* #CC5200 */
-    
+    --ti-orange-dark: 24 100% 35%;      /* #B34A00 */
+
     /* Neutral Colors */
     --ti-gray: 210 4% 46%;              /* #727272 */
     --ti-gray-light: 210 20% 96%;       /* #F5F7FA */
     --ti-gray-dark: 210 11% 15%;        /* #1F2937 */
-    
-    /* 21st.dev inspired modern colors - Enhanced for better readability */
-    --background: 222 84% 4%;           /* Deeper dark for better contrast */
-    --foreground: 210 40% 96%;          /* Softer white for comfort */
-    
-    --card: 222 47% 8%;                 /* Slightly lighter cards for content visibility */
+
+    /* Base oscura original de la marca */
+    --background: 222 84% 4%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 8%;
     --card-foreground: 210 40% 95%;
-    
+
     --popover: 222 47% 8%;
     --popover-foreground: 210 40% 95%;
-    
-    --primary: 18 100% 55%;             /* Slightly brighter orange for better visibility */
-    --primary-foreground: 210 40% 98%;
-    
-    --secondary: 217 32% 12%;           /* Darker secondary for subtle elements */
-    --secondary-foreground: 210 25% 80%; /* Better contrast for secondary text */
-    
+
+    /* Mismo naranja vivo que el resto del sitio, con texto oscuro encima (~6.9:1) */
+    --primary: 24 100% 50%;
+    --primary-foreground: 222 84% 4%;
+
+    --secondary: 217 32% 12%;
+    --secondary-foreground: 210 25% 80%;
+
     --muted: 217 32% 12%;
-    --muted-foreground: 215 16% 70%;    /* Higher contrast for muted text */
-    
+    --muted-foreground: 215 16% 70%;
+
     --accent: 217 32% 15%;
     --accent-foreground: 210 40% 92%;
-    
+
     --destructive: 0 62% 50%;
     --destructive-foreground: 210 40% 98%;
-    
-    --border: 217 32% 15%;              /* Subtle but visible borders */
-    --input: 217 32% 12%;
-    --ring: 18 100% 55%;                /* Match primary */
-    
+
+    --border: 217 32% 15%;
+    /* ~3.8:1 contra --background, suficiente para que el borde del input se note */
+    --input: 215 19% 46%;
+    --ring: 24 100% 55%;
+
     --radius: 0.75rem;
-    
-    /* Enhanced gradients for better content backdrop */
+
     --gradient-bg: linear-gradient(135deg, hsl(222 84% 4%) 0%, hsl(217 32% 8%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(222 84% 4%) 0%, hsl(217 32% 6%) 50%, hsl(222 84% 4%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(217 32% 12% / 0.6) 0%, hsl(222 47% 8% / 0.9) 100%);
-    
-    /* Refined shadows */
+    /* Opacidad subida (antes 0.6/0.9) para que el navbar no se transparente sobre franjas claras */
+    --gradient-card: linear-gradient(135deg, hsl(217 32% 12% / 0.88) 0%, hsl(222 47% 8% / 0.95) 100%);
+
     --shadow-glow: 0 0 30px hsl(var(--ti-orange) / 0.12);
     --shadow-card: 0 8px 32px hsl(222 84% 4% / 0.4);
 
@@ -64,76 +66,45 @@
     --sidebar-border: 217 32% 17%;
     --sidebar-ring: 18 100% 50%;
   }
-
-  .dark {
-    /* Same colors for dark mode - it's our default */
-  }
-  
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 222 84% 5%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
-    
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 84% 5%;
-    
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 84% 5%;
-    
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    
-    --gradient-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(214 32% 95%) 50%, hsl(210 40% 98%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8) 0%, hsl(210 40% 98% / 0.9) 100%);
-  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground font-sans;
     background: var(--gradient-bg);
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'Inter', system-ui, sans-serif;
   }
-  
+
   /* 21st.dev inspired typography */
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight;
     font-weight: 600;
   }
-  
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
-  
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   ::-webkit-scrollbar-track {
     background: hsl(var(--muted));
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--ti-orange));
     border-radius: 3px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--ti-orange-dark));
   }
@@ -146,40 +117,40 @@
     background: var(--gradient-card);
     border-color: hsl(var(--border));
   }
-  
+
   /* Refined hover animations */
   .hover-scale {
     @apply transition-all duration-300 hover:scale-[1.02];
   }
-  
+
   .hover-glow {
     @apply transition-all duration-300;
   }
-  
+
   .hover-glow:hover {
     box-shadow: var(--shadow-glow);
     transform: translateY(-2px);
   }
-  
+
   /* Enhanced text gradients with better readability */
   .text-gradient {
-    @apply bg-gradient-to-r from-foreground via-muted-foreground to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-foreground via-muted-foreground to-ti-orange bg-clip-text text-transparent;
   }
-  
+
   .text-gradient-orange {
-    @apply bg-gradient-to-r from-primary to-ti-orange-light bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-ti-orange to-ti-orange-light bg-clip-text text-transparent;
   }
-  
+
   /* Content containers for better readability */
   .content-container {
     @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8;
   }
-  
+
   /* Enhanced focus states */
   .focus-enhanced {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
-  
+
   /* Modern button base */
   .btn-modern {
     @apply relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200 rounded-xl;
@@ -205,7 +176,41 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   z-index: 0; /* Place custom icon below the invisible native picker */
 }
 
-/* This helps to ensure the native calendar picker's appearance is consistent with dark themes */
+/* El selector nativo de fecha vuelve a verse bien sobre fondo oscuro */
 input[type="date"] {
   color-scheme: dark;
+}
+
+/* Smooth hero motion: animate each SVG layer instead of every individual path. */
+@keyframes hero-background-drift {
+  0%,
+  100% {
+    transform: translate3d(-1%, 0, 0) scale(1.03);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translate3d(1%, -1%, 0) scale(1.05);
+    opacity: 1;
+  }
+}
+
+.hero-background-motion {
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: hero-background-drift 28s ease-in-out infinite;
+}
+
+.hero-background-motion-reverse {
+  animation-direction: reverse;
+  animation-duration: 34s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-motion,
+  .hero-background-motion-reverse {
+    animation: none;
+    transform: none;
+    opacity: 0.85;
+  }
 }

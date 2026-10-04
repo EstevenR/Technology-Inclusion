@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
         id: i,
@@ -14,7 +12,11 @@ function FloatingPaths({ position }: { position: number }) {
     }));
 
     return (
-        <div className="absolute inset-0 pointer-events-none">
+        <div
+            className={`absolute inset-0 pointer-events-none hero-background-motion ${
+                position < 0 ? "hero-background-motion-reverse" : ""
+            }`}
+        >
             <svg
                 className="w-full h-full text-orange-500"
                 viewBox="0 0 696 316"
@@ -22,23 +24,12 @@ function FloatingPaths({ position }: { position: number }) {
             >
                 <title>Trazos de fondo</title>
                 {paths.map((path) => (
-                    <motion.path
+                    <path
                         key={path.id}
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
                         strokeOpacity={0.1 + path.id * 0.03}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
-                        animate={{
-                            pathLength: 1,
-                            opacity: [0.1, 0.4, 0.1],
-                            pathOffset: [0, 1, 0],
-                        }}
-                        transition={{
-                            duration: 20 + Math.random() * 10,
-                            repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
-                        }}
                     />
                 ))}
             </svg>

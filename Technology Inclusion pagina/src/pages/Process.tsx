@@ -140,40 +140,40 @@ const Process = () => {
                             {step.number}
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-ti-orange/20 text-ti-orange text-sm font-medium">
+                        <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
+                        <div className="inline-flex items-center px-3 py-1 rounded-full bg-ti-orange/20 text-ti-orange-light text-sm font-medium">
                           <Clock className="w-4 h-4 mr-1" />
                           {step.duration}
                         </div>
                       </div>
-                      
+
                       <div className="space-y-2">
-                        <h4 className="font-semibold text-white text-sm mb-3">Actividades principales:</h4>
+                        <h4 className="font-semibold text-foreground text-sm mb-3">Actividades principales:</h4>
                         {step.activities.map((activity, activityIndex) => (
                           <div key={activityIndex} className="flex items-start space-x-2">
                             <CheckCircle className="w-4 h-4 text-ti-orange mt-0.5 flex-shrink-0" />
-                            <span className="text-sm text-white font-medium">{activity}</span>
+                            <span className="text-sm text-foreground font-medium">{activity}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                    
+
                     <div className="md:w-2/3 p-8">
                       <CardHeader>
-                        <CardDescription className="text-lg leading-relaxed text-ti-gray">
+                        <CardDescription className="text-lg leading-relaxed text-muted-foreground">
                           {step.description}
                         </CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <div className="bg-ti-gray-dark/20 p-4 rounded-lg mb-6">
-                          <h4 className="font-semibold text-white mb-2">Entregable de esta fase:</h4>
-                          <p className="text-white">{step.deliverable}</p>
+                        <div className="bg-ti-orange/5 border border-ti-orange/10 p-4 rounded-lg mb-6">
+                          <h4 className="font-semibold text-foreground mb-2">Entregable de esta fase:</h4>
+                          <p className="text-foreground/90">{step.deliverable}</p>
                         </div>
                         
                         {index === 0 && (
                           <div className="space-y-4">
                             <h4 className="font-semibold text-ti-orange">¿Por qué empezamos aquí?</h4>
-                            <p className="text-ti-gray">
+                            <p className="text-muted-foreground">
                               Muchas empresas fallan en automatización porque implementan tecnología sin entender 
                               realmente sus procesos. Nosotros invertimos tiempo en conocer a fondo tu negocio 
                               antes de proponer cualquier solución.
@@ -184,7 +184,7 @@ const Process = () => {
                         {index === 1 && (
                           <div className="space-y-4">
                             <h4 className="font-semibold text-ti-orange">Transparencia total</h4>
-                            <p className="text-ti-gray">
+                            <p className="text-muted-foreground">
                               Antes de comenzar el desarrollo, tienes claridad completa sobre qué vas a recibir, 
                               cuánto va a costar, cuánto tiempo tomará y qué resultados puedes esperar.
                             </p>
@@ -194,7 +194,7 @@ const Process = () => {
                         {index === 2 && (
                           <div className="space-y-4">
                             <h4 className="font-semibold text-ti-orange">Metodología ágil</h4>
-                            <p className="text-ti-gray">
+                            <p className="text-muted-foreground">
                               Trabajamos en ciclos cortos de dos a tres semanas. Cada ciclo entrega funcionalidad útil,
                               por lo que empiezas a ver beneficios desde las primeras semanas.
                             </p>
@@ -204,7 +204,7 @@ const Process = () => {
                         {index === 3 && (
                           <div className="space-y-4">
                             <h4 className="font-semibold text-ti-orange">Crecimiento conjunto</h4>
-                            <p className="text-ti-gray">
+                            <p className="text-muted-foreground">
                               A medida que tu negocio evoluciona, tu tecnología debe evolucionar también. 
                               Nos mantenemos al día con las últimas innovaciones para proponerte mejoras continuas.
                             </p>
@@ -223,7 +223,7 @@ const Process = () => {
       {/* Differentiators */}
       <section className="relative py-16 lg:py-24 bg-ti-gray-light overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-30 blur-2xl">
           <div className="absolute top-20 left-10 w-32 h-32 bg-ti-orange/20 rounded-full animate-pulse"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-ti-orange-light/30 rounded-full animate-fade-in animation-delay-1000"></div>
           <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-ti-orange/10 rounded-full animate-scale-in animation-delay-2000"></div>
@@ -232,10 +232,10 @@ const Process = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-ti-orange mb-4">
-              ¿Qué nos hace diferentes?
+            <h2 className="text-3xl md:text-4xl font-bold text-ti-gray-dark mb-4">
+              ¿Qué nos hace <span className="text-ti-orange">diferentes</span>?
             </h2>
-            <p className="text-xl text-ti-gray max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Nuestro proceso está diseñado específicamente para pymes que quieren resultados reales, no solo tecnología bonita.
             </p>
           </div>
@@ -247,7 +247,7 @@ const Process = () => {
                   <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <diff.icon className="w-8 h-8 text-ti-orange" />
                   </div>
-                  <CardTitle className="text-xl text-white">{diff.title}</CardTitle>
+                  <CardTitle className="text-xl text-card-foreground">{diff.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">{diff.description}</CardDescription>
@@ -262,67 +262,67 @@ const Process = () => {
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Nuestra metodología de trabajo
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Principios que nos guían</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Principios que nos guían</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-ti-orange rounded-full flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Primero entender, luego automatizar</h4>
-                    <p className="text-white">No automatizamos procesos rotos. Primero los optimizamos, luego los digitalizamos.</p>
+                    <h4 className="font-semibold text-foreground mb-1">Primero entender, luego automatizar</h4>
+                    <p className="text-muted-foreground">No automatizamos procesos rotos. Primero los optimizamos, luego los digitalizamos.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-ti-orange rounded-full flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Resultados rápidos y tangibles</h4>
-                    <p className="text-white">Cada fase del proyecto debe generar valor inmediato y medible para tu negocio.</p>
+                    <h4 className="font-semibold text-foreground mb-1">Resultados rápidos y tangibles</h4>
+                    <p className="text-muted-foreground">Cada fase del proyecto debe generar valor inmediato y medible para tu negocio.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-ti-orange rounded-full flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Tecnología simple y robusta</h4>
-                    <p className="text-white">Priorizamos soluciones que tu equipo pueda entender y usar sin complicaciones.</p>
+                    <h4 className="font-semibold text-foreground mb-1">Tecnología simple y robusta</h4>
+                    <p className="text-muted-foreground">Priorizamos soluciones que tu equipo pueda entender y usar sin complicaciones.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-ti-orange rounded-full flex items-center justify-center flex-shrink-0">
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Transferencia de conocimiento</h4>
-                    <p className="text-white">Te capacitamos para que puedas gestionar y evolucionar la solución de forma autónoma.</p>
+                    <h4 className="font-semibold text-foreground mb-1">Transferencia de conocimiento</h4>
+                    <p className="text-muted-foreground">Te capacitamos para que puedas gestionar y evolucionar la solución de forma autónoma.</p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gradient-to-br from-ti-orange/10 to-ti-orange-light/10 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-4">Garantía de satisfacción</h3>
-              <p className="text-white mb-6">
-                Estamos tan seguros de nuestro proceso que ofrecemos una garantía única: 
-                si después de la fase de diagnóstico no ves valor claro en nuestras recomendaciones, 
+              <h3 className="text-xl font-bold text-foreground mb-4">Garantía de satisfacción</h3>
+              <p className="text-foreground/90 mb-6">
+                Estamos tan seguros de nuestro proceso que ofrecemos una garantía única:
+                si después de la fase de diagnóstico no ves valor claro en nuestras recomendaciones,
                 no pagas nada.
               </p>
-              <div className="bg-white p-4 rounded-lg border-l-4 border-ti-orange">
-                <p className="text-sm text-ti-gray">
-                  <strong className="text-ti-orange">Nuestro compromiso:</strong> Solo avanzamos a la implementación 
+              <div className="bg-card p-4 rounded-lg border-l-4 border-ti-orange shadow-sm">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-ti-orange">Nuestro compromiso:</strong> Solo avanzamos a la implementación
                   cuando estés 100 % convencido de que la solución propuesta transformará tu negocio.
                 </p>
               </div>
@@ -332,19 +332,19 @@ const Process = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-ti-orange to-ti-orange-light text-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-ti-orange to-ti-orange-light text-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Listo para comenzar tu transformación?
           </h2>
-          <p className="text-xl mb-8 font-light">
-            El primer paso es una conversación. Agenda tu diagnóstico gratuito 
+          <p className="text-xl mb-8">
+            El primer paso es una conversación. Agenda tu diagnóstico gratuito
             y descubre las oportunidades ocultas en tu negocio.
           </p>
-          <Button variant="secondary" size="xl" className="text-ti-orange hover:bg-white" onClick={() => setIsDiagnosisModalOpen(true)}>
+          <Button variant="secondary" size="xl" className="w-full whitespace-normal text-ti-orange hover:bg-white hover:text-ti-orange-dark sm:w-auto" onClick={() => setIsDiagnosisModalOpen(true)}>
             Iniciar mi diagnóstico <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
-          <p className="text-sm mt-4 opacity-90">
+          <p className="text-sm mt-4">
             Sin compromiso • Sin costo • Sin letra pequeña
           </p>
         </div>

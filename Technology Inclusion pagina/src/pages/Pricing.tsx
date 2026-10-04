@@ -30,28 +30,28 @@ const Pricing = () => {
 
   const packages = [{
     title: "EMPRENDEDOR",
-    description: "Tu primer paso hacia la automatización inteligente",
-    features: ["Facturación electrónica DIAN automatizada", "CRM básico con seguimiento de clientes", "Control de inventario en tiempo real", "Panel de métricas básicas", "Copia de seguridad automática en la nube", "Capacitación completa del equipo", "Soporte técnico por tres meses", "Actualizaciones incluidas"],
-    price: "Plan Emprendedor",
-    badge: "Más popular",
+    description: "Tu presencia digital, lista para operar",
+    features: ["Dominio propio y sitio o app web desplegada", "Facturación electrónica DIAN automatizada", "CRM básico con seguimiento de clientes", "Alertas de stock bajo", "Copia de seguridad automática en la nube", "Capacitación completa del equipo", "Soporte técnico por tres meses"],
+    price: "A cotizar",
+    badge: undefined,
     ctaText: "Cotizar paquete Emprendedor",
-    variant: "featured" as const,
+    variant: "default" as const,
     icon: <Rocket className="w-6 h-6" />
   }, {
     title: "CRECIMIENTO",
-    description: "Inteligencia de negocios para decisiones estratégicas",
-    features: ["Todo lo del paquete Emprendedor", "Analítica avanzada con IA", "Alertas inteligentes personalizadas", "Predicción de tendencias de venta", "Segmentación automática de clientes", "Reportes ejecutivos automatizados", "API para integraciones", "Soporte técnico por seis meses", "Consultoría mensual incluida"],
-    price: "Plan Crecimiento",
+    description: "Conectamos y automatizamos lo que ya tienes",
+    features: ["Todo lo del paquete Emprendedor", "Integración de tus herramientas actuales (Excel, WhatsApp, contabilidad)", "Automatización de procesos manuales repetitivos", "Monitoreo de cartera y pagos vencidos con alertas automáticas", "Reportes periódicos automáticos por WhatsApp o correo", "Analítica y predicción de tendencias", "Soporte técnico por seis meses"],
+    price: "A cotizar",
     badge: "Recomendado",
     ctaText: "Cotizar paquete Crecimiento",
-    variant: "default" as const,
+    variant: "featured" as const,
     icon: <BarChart3 className="w-6 h-6" />
   }, {
     title: "EMPRESARIAL",
-    description: "Automatización avanzada con IA y RPA de vanguardia",
-    features: ["Todo lo de los paquetes anteriores", "IA avanzada para predicción de demanda", "RPA para automatización completa", "Integración con sistemas heredados", "Chatbots inteligentes con procesamiento del lenguaje natural", "Flujos de trabajo automáticos complejos", "API empresarial personalizada", "Soporte técnico dedicado", "Hoja de ruta de innovación trimestral"],
-    price: "Plan Empresarial",
-    badge: "Premium",
+    description: "Automatización total con IA controlando procesos clave",
+    features: ["Todo lo de los paquetes anteriores", "Automatización de varias áreas del negocio a la vez", "Sistema de bots/IA para atención, seguimiento y alertas", "Monitoreo en tiempo real de la operación con alertas inteligentes", "Integración con sistemas heredados", "API empresarial personalizada", "Soporte técnico dedicado"],
+    price: "A cotizar",
+    badge: undefined,
     ctaText: "Contactar a un especialista",
     variant: "premium" as const,
     icon: <Crown className="w-6 h-6" />
@@ -133,10 +133,10 @@ const Pricing = () => {
       {/* Hero Section with Futuristic Grid */}
       <section className="relative bg-gradient-to-br from-ti-gray-dark via-ti-gray-dark to-black text-white py-20 lg:py-32 overflow-hidden">
         <FuturisticGrid opacity={0.15} />
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in">
-            <Badge className="mb-6 bg-ti-orange/20 text-ti-orange border-ti-orange/30">
+            <Badge className="mb-6 bg-background text-ti-orange-light border-ti-orange/40">
               <Brain className="w-4 h-4 mr-2" />
               Impulsado por IA
             </Badge>
@@ -185,8 +185,8 @@ const Pricing = () => {
             desc: "Tienes 30 días para evaluar. Si no te convence, te devolvemos todo."
           }, {
             Icon: Clock,
-            title: "Sin permanencia",
-            desc: "Cancela cuando quieras después de 3 meses."
+            title: "Compromiso corto",
+            desc: "Solo 3 meses iniciales. Después, continúas porque ves valor, no por contrato."
           }, {
             Icon: CheckCircle,
             title: "Todo incluido",
@@ -210,10 +210,10 @@ const Pricing = () => {
       <section className="py-16 lg:py-24 bg-ti-gray-light relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-950">
-              Proceso de implementación
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-ti-gray-dark">
+              Proceso de <span className="text-ti-orange">implementación</span>
             </h2>
-            <p className="text-xl text-ti-orange">
+            <p className="text-xl text-ti-orange-dark font-medium">
               Metodología probada para una transformación exitosa
             </p>
           </div>
@@ -235,23 +235,23 @@ const Pricing = () => {
       <section className="py-16 lg:py-24 bg-ti-gray-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl mb-4 font-extrabold text-zinc-900">
-              Preguntas frecuentes
+            <h2 className="text-3xl md:text-4xl mb-4 font-extrabold text-ti-gray-dark">
+              Preguntas <span className="text-ti-orange">frecuentes</span>
             </h2>
-            <p className="text-ti-orange text-2xl">
+            <p className="text-ti-orange-dark text-2xl font-medium">
               Resolvemos las dudas más comunes sobre automatización con IA
             </p>
           </div>
-          
+
           <div className="space-y-6">
             {faqs.map((faq, index) => <div key={index} className="group">
-                <div className="rounded-xl p-6 border border-border hover:border-ti-orange/50 transition-all duration-300 hover:shadow-lg bg-slate-950">
+                <div className="rounded-xl p-6 border border-border hover:border-ti-orange/50 transition-all duration-300 hover:shadow-lg bg-card">
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 bg-ti-orange/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-ti-orange/20 transition-colors">
                       <HelpCircle className="w-5 h-5 text-ti-orange" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-3 text-ti-gray-dark text-zinc-50">
+                      <h3 className="text-lg font-semibold mb-3 text-card-foreground">
                         {faq.question}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
@@ -262,10 +262,10 @@ const Pricing = () => {
                 </div>
               </div>)}
           </div>
-          
+
           <div className="text-center mt-12">
-            <p className="mb-4 text-orange-600">¿Tienes más preguntas técnicas?</p>
-            <Button variant="orange-outline" size="lg" className="hover-scale" onClick={() => {
+            <p className="mb-4 text-ti-orange-dark font-medium">¿Tienes más preguntas técnicas?</p>
+            <Button variant="orange-outline" size="lg" className="hover-scale border-ti-orange-dark text-ti-orange-dark hover:bg-ti-orange-dark" onClick={() => {
               try {
                 if (window.$chatwoot) {
                   window.$chatwoot.toggle();
@@ -286,23 +286,23 @@ const Pricing = () => {
       </section>
 
       {/* Final CTA with Futuristic Design */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-ti-orange to-ti-orange-light text-white relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-ti-orange to-ti-orange-light text-background relative overflow-hidden">
         <FuturisticGrid className="opacity-10" />
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               ¿Listo para el futuro de tu negocio?
             </h2>
-            <p className="text-xl mb-8 font-light">
+            <p className="text-xl mb-8">
               Agenda una demostración personalizada y descubre cómo la IA puede
               transformar tu operación en las próximas semanas.
             </p>
-            <Button variant="blue" size="xl" className="hover-scale" onClick={handleOpenDemoRequestModal}>
+            <Button variant="blue" size="xl" className="w-full whitespace-normal hover-scale sm:w-auto" onClick={handleOpenDemoRequestModal}>
               <Zap className="w-5 h-5 mr-2" />
               Agenda tu demostración personalizada
             </Button>
-            <p className="text-sm mt-4 opacity-90">
+            <p className="text-sm mt-4">
               45 min • Demostración personalizada • Cotización inmediata • Sin compromiso
             </p>
           </div>

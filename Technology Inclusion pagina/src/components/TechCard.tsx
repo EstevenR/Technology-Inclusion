@@ -53,12 +53,12 @@ const TechCard: React.FC<TechCardProps> = ({
     <Card className={`group relative flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 ${getCardStyles()}`}>
       {badge && (
         <div className="absolute top-4 right-4">
-          <Badge variant={variant === 'featured' ? 'default' : 'secondary'} className="bg-ti-orange text-white">
+          <Badge variant={variant === 'featured' ? 'default' : 'secondary'} className="bg-ti-orange-dark text-white">
             {badge}
           </Badge>
         </div>
       )}
-      
+
       <CardHeader className="pb-4">
         {icon && (
           <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${getIconStyles()}`}>
@@ -69,7 +69,6 @@ const TechCard: React.FC<TechCardProps> = ({
         {price && (
           <div className="text-2xl font-bold text-ti-orange">
             {price}
-            <span className="text-sm font-normal text-muted-foreground ml-1">/ mes</span>
           </div>
         )}
         <CardDescription className="text-base">{description}</CardDescription>

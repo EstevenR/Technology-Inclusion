@@ -1,245 +1,355 @@
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import { 
-  Heart, 
-  Lightbulb, 
-  Handshake, 
-  Award, 
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BarChart3,
+  Car,
+  CheckCircle2,
+  Clock3,
+  Gift,
+  Handshake,
+  MessageSquare,
+  Scissors,
+  ShieldCheck,
+  ShoppingBag,
+  Sparkles,
   Target,
   Users,
-  Globe,
   Zap,
-  BookOpen,
-  MessageSquare
 } from "lucide-react";
-import { useState } from 'react';
-import { ContactChoiceModal } from '@/components/ContactChoiceModal';
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { ContactChoiceModal } from "@/components/ContactChoiceModal";
+import { projectCases } from "@/data/projects";
+
+const results = [
+  {
+    value: "+300",
+    label: "vehículos organizados en una operación de parqueadero",
+    icon: Car,
+  },
+  {
+    value: "35 %",
+    label: "de reducción documentada en la morosidad",
+    icon: BarChart3,
+  },
+  {
+    value: "40 h",
+    label: "de trabajo administrativo ahorradas al mes",
+    icon: Clock3,
+  },
+  {
+    value: "+1.000",
+    label: "dispositivos en experiencia de monitoreo técnico",
+    icon: Zap,
+  },
+];
+
+const principles = [
+  {
+    title: "Claridad",
+    description:
+      "Definimos alcances, tiempos y prioridades con un lenguaje fácil de entender.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Cercanía",
+    description:
+      "Escuchamos a quienes operan el negocio y acompañamos la adopción de cada solución.",
+    icon: Handshake,
+  },
+  {
+    title: "Soluciones a medida",
+    description:
+      "Partimos del proceso real del cliente, no de una herramienta predeterminada.",
+    icon: Sparkles,
+  },
+  {
+    title: "Resultados medibles",
+    description:
+      "Priorizamos mejoras que reduzcan tareas manuales, errores y tiempos de operación.",
+    icon: Target,
+  },
+];
+
+const projectIcons = {
+  barberia: Scissors,
+  parking: Car,
+  "always-style": ShoppingBag,
+  "gestos-inolvidables": Gift,
+};
 
 const About = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [modalKey, setModalKey] = useState(0); // Key to force modal re-mount
-  const values = [
-    {
-      icon: Heart,
-      title: "Honestidad",
-      description: "Transparencia total en cada proyecto. Hablamos claro sobre alcances, tiempos y resultados esperados."
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovación",
-      description: "Soluciones novedosas y eficientes que van más allá de lo convencional. Siempre buscamos la mejor forma de resolver cada desafío."
-    },
-    {
-      icon: Handshake,
-      title: "Cercanía",
-      description: "Acompañamiento humano y empático. Entendemos que cada negocio es único y merece atención personalizada."
-    },
-    {
-      icon: Award,
-      title: "Excelencia",
-      description: "Compromiso con la calidad en cada detalle. No nos conformamos con 'suficiente', buscamos lo excepcional."
-    },
-    {
-      icon: Target,
-      title: "Orientación a resultados",
-      description: "Foco en el impacto medible. Cada implementación debe generar valor real y tangible para tu negocio."
-    },
-    {
-      icon: BookOpen,
-      title: "Aprendizaje continuo",
-      description: "Nos mantenemos actualizados en tecnologías y tendencias para ofrecer siempre soluciones de vanguardia a nuestras pymes."
-    }
-  ];
+  const [modalKey, setModalKey] = useState(0);
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-8">
-            <img 
-              src="/assets/8d6bf03c-ce21-44b9-b884-69677f5ee197.png"
-              alt="Technology Inclusion Logo" 
-              className="h-16 md:h-20 w-auto"
-            />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
-            Sobre nosotros
-          </h1>
-          <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto text-muted-foreground">
-            Conoce la historia, valores y visión detrás de Technology Inclusion
-          </p>
-        </div>
-      </section>
 
-      {/* Mission & Vision */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Nacimos para cerrar la brecha digital en Colombia
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xl text-ti-gray leading-relaxed mb-8">
-                <strong className="text-ti-orange">Aspiramos a un ecosistema empresarial</strong> donde la tecnología sea el principal aliado del crecimiento para cualquier emprendedor, sin importar el tamaño de su empresa o su nivel de conocimiento técnico.
-              </p>
-              <p className="text-xl text-ti-gray leading-relaxed">
-                <strong className="text-ti-orange">Para lograrlo,</strong> transformamos los procesos rutinarios de las pymes en ventajas competitivas a través de soluciones de automatización e inteligencia artificial accesibles, personalizadas y orientadas a resultados medibles.
-              </p>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-ti-orange" />
-              </div>
-              <h3 className="text-3xl font-bold text-white mb-2">99 %</h3>
-              <p className="text-white/80">de las empresas en Colombia son pymes</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-ti-orange" />
-              </div>
-              <h3 className="text-3xl font-bold text-white mb-2">67 %</h3>
-              <p className="text-white/80">del empleo nacional depende de las pymes</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-ti-orange" />
-              </div>
-              <h3 className="text-3xl font-bold text-white mb-2">23 %</h3>
-              <p className="text-white/80">tiene procesos digitalizados</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-16 lg:py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestros valores
-            </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Los principios que guían cada decisión y cada proyecto que emprendemos
+      <main>
+        <section className="relative flex min-h-[68vh] items-center justify-center overflow-hidden pt-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-ti-orange/10" />
+          <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ti-orange/10 blur-[110px]" />
+          <div className="relative mx-auto max-w-5xl px-4 py-24 text-center sm:px-6 lg:px-8">
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.24em] text-ti-orange">
+              Sobre nosotros
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-none">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-ti-orange/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-ti-orange group-hover:text-white transition-colors">
-                    <value.icon className="w-8 h-8" />
-                  </div>
-                  <CardTitle className="text-xl text-white">{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardDescription className="text-base text-white/80">{value.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Nuestro equipo
-            </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Conoce a las personas apasionadas que hacen posible la transformación digital de las pymes
+            <h1 className="mb-7 text-4xl font-bold leading-tight text-gradient md:text-6xl lg:text-7xl">
+              Tecnología que se adapta a tu negocio, no al revés
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Ayudamos a pequeñas empresas a convertir procesos manuales en operaciones
+              más simples, visibles y preparadas para crecer.
             </p>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button asChild size="lg" className="bg-ti-orange text-background hover:bg-ti-orange-light">
+                <Link to="/proyectos">
+                  Conoce nuestros proyectos
+                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-ti-orange/40 hover:border-ti-orange hover:bg-ti-orange/10"
+                onClick={() => setIsContactModalOpen(true)}
+              >
+                Agenda un diagnóstico
+              </Button>
+            </div>
           </div>
+        </section>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-xl">
-              <div className="md:flex">
-                <div className="md:w-1/3 bg-gradient-to-br from-ti-orange to-ti-orange-light p-8 text-white flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Users className="w-16 h-16" />
-                    </div>
-                    <h3 className="text-2xl font-bold">Fundador y CEO</h3>
-                  </div>
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                Nuestra historia
+              </p>
+              <h2 className="mb-7 text-3xl font-bold leading-tight text-foreground md:text-5xl">
+                Nacimos al ver cuánto tiempo pierden los negocios en tareas que pueden simplificarse
+              </h2>
+              <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Technology Inclusion surgió al trabajar de cerca con operaciones que dependían
+                  de cuadernos, conversaciones dispersas y hojas de cálculo para atender clientes,
+                  controlar pagos y tomar decisiones.
+                </p>
+                <p>
+                  Entendimos que el problema no era la falta de herramientas, sino encontrar una
+                  solución que respetara la realidad de cada negocio y que su equipo pudiera usar
+                  todos los días.
+                </p>
+                <p className="font-medium text-foreground">
+                  Por eso empezamos escuchando el proceso, priorizamos el impacto y construimos
+                  únicamente lo que aporta valor real.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-8 shadow-2xl sm:p-10">
+              <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-ti-orange text-white shadow-glow">
+                <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
+              </div>
+              <h3 className="mb-6 text-2xl font-bold text-card-foreground">Qué hacemos diferente</h3>
+              <ul className="space-y-5">
+                {[
+                  "Entendemos primero cómo funciona tu operación.",
+                  "Priorizamos el proceso con mayor impacto.",
+                  "Construimos alrededor de tu negocio y tu equipo.",
+                  "Medimos resultados y acompañamos la adopción.",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-ti-orange" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-ti-gray-light py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange-dark">
+                Experiencia aplicada
+              </p>
+              <h2 className="mb-5 text-3xl font-bold text-ti-gray-dark md:text-4xl">
+                Resultados que cuentan mejor nuestra <span className="text-ti-orange">historia</span>
+              </h2>
+              <p className="text-lg text-gray-600">
+                La tecnología tiene sentido cuando mejora una operación real.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {results.map((result) => (
+                <div key={result.value} className="rounded-2xl border border-border bg-card p-6">
+                  <result.icon className="mb-6 h-7 w-7 text-ti-orange" aria-hidden="true" />
+                  <p className="text-3xl font-bold text-ti-orange">{result.value}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{result.label}</p>
                 </div>
-                <div className="md:w-2/3 p-8">
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-white">
-                      Brayan Steven Murillo Rivas
-                    </CardTitle>
-                    <CardDescription className="text-lg text-primary/90">
-                      Fundador, CEO y consultor principal
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-white/90 leading-relaxed mb-4">
-                      Soy ingeniero de sistemas (en proceso de graduación) con experiencia práctica en el sector ISP, 
-                      donde he liderado proyectos de automatización, monitoreo de redes y adopción de IA para pequeñas empresas. 
-                      Tras ver de cerca las barreras tecnológicas que frenan a los emprendedores colombianos, decidí crear 
-                      Technology Inclusion: una empresa que convierte procesos manuales en ventajas competitivas mediante 
-                      soluciones accesibles de automatización e inteligencia artificial.
-                    </p>
-                    <div className="mb-4">
-                      <h4 className="text-white font-semibold mb-3">Trayectoria destacada:</h4>
-                      <div className="space-y-3">
-                        <p className="text-white/90 leading-relaxed">
-                          <strong className="text-white">Automatización y no-code:</strong> Implementé bots, integraciones Zabbix–HubSpot
-                          y flujos no-code que redujeron en más del 40 % el tiempo de soporte en un ISP local.
-                        </p>
-                        <p className="text-white/90 leading-relaxed">
-                          <strong className="text-white">Monitoreo y telemetría:</strong> Integré paneles de telemetría y sistemas
-                          de alertas proactivas que mantienen operativos más de 1000 dispositivos MikroTik, enrutadores y antenas Cambium.
-                        </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                Quién está detrás
+              </p>
+              <h2 className="text-3xl font-bold text-foreground md:text-5xl">
+                Experiencia técnica con visión de negocio
+              </h2>
+            </div>
+
+            <article className="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl lg:grid-cols-[0.72fr_1.28fr]">
+              <div className="relative flex min-h-[360px] flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-ti-orange to-ti-orange-light p-10 text-center text-background">
+                <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+                <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-background/30 bg-background/10 text-4xl font-bold backdrop-blur-sm">
+                  BSMR
+                </div>
+                <p className="relative mt-7 text-sm font-semibold uppercase tracking-[0.2em]">
+                  Fundador
+                </p>
+                <p className="relative mt-2 text-xl font-bold">Technology Inclusion</p>
+              </div>
+
+              <div className="p-8 sm:p-10 lg:p-12">
+                <h3 className="text-3xl font-bold text-card-foreground">Brayan Steven Murillo Rivas</h3>
+                <p className="mt-2 font-semibold text-ti-orange">Fundador y consultor principal</p>
+
+                <div className="mt-7 space-y-5 leading-relaxed text-muted-foreground">
+                  <p>
+                    Combina experiencia en operación de proveedores de internet, automatización,
+                    monitoreo e integración de sistemas para resolver problemas cotidianos de
+                    pequeñas empresas.
+                  </p>
+                  <p>
+                    Creó Technology Inclusion después de vivir de cerca las barreras que aparecen
+                    cuando la tecnología es compleja, costosa o no se adapta a quienes realmente
+                    deben utilizarla.
+                  </p>
+                </div>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                  {[
+                    ["Automatización", "Bots, flujos e integraciones"],
+                    ["Operación", "Monitoreo y telemetría"],
+                    ["Negocio", "Procesos y resultados"],
+                  ].map(([title, description]) => (
+                    <div key={title} className="rounded-xl border border-border bg-muted/50 p-4">
+                      <p className="font-semibold text-foreground">{title}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="bg-muted/20 py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                Cómo trabajamos
+              </p>
+              <h2 className="mb-5 text-3xl font-bold text-foreground md:text-4xl">Principios visibles en cada proyecto</h2>
+              <p className="text-lg text-muted-foreground">
+                No son frases decorativas: son compromisos que orientan cada decisión.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {principles.map((principle) => (
+                <div key={principle.title} className="rounded-2xl border border-border bg-card p-7 transition-transform duration-300 hover:-translate-y-1">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-ti-orange/10 text-ti-orange">
+                    <principle.icon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-xl font-bold text-card-foreground">{principle.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{principle.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-3xl">
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ti-orange">
+                  Nuestro trabajo
+                </p>
+                <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+                  Nuestra experiencia se demuestra en soluciones funcionando
+                </h2>
+              </div>
+              <Button asChild variant="outline" className="border-ti-orange/40 hover:bg-ti-orange/10">
+                <Link to="/proyectos">
+                  Ver todos los proyectos
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {projectCases.map((project) => {
+                const Icon = projectIcons[project.id];
+                return (
+                  <Link
+                    key={project.id}
+                    to={`/proyectos#${project.id}`}
+                    className="group rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-ti-orange/40"
+                  >
+                    <div className="flex items-start gap-5">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-ti-orange/10 text-ti-orange group-hover:bg-ti-orange group-hover:text-white">
+                        <Icon className="h-6 w-6" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ti-orange">{project.eyebrow}</p>
+                        <h3 className="mt-2 text-2xl font-bold text-card-foreground">{project.title}</h3>
+                        <p className="mt-3 leading-relaxed text-muted-foreground">{project.summary}</p>
+                        <span className="mt-5 inline-flex items-center font-semibold text-ti-orange">
+                          Conoce el proyecto
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                        </span>
                       </div>
                     </div>
-                    <div>
-                      <h4 className="text-white font-semibold mb-2">Mi misión personal</h4>
-                      <p className="text-white/90 leading-relaxed">
-                        Que ningún emprendedor se sienta excluido del mundo digital por falta de recursos técnicos. 
-                        Creo firmemente que la IA y la automatización pueden nivelar el terreno de juego para las pymes latinoamericanas.
-                      </p>
-                    </div>
-                  </CardContent>
-                </div>
-              </div>
-            </Card>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-ti-orange to-ti-orange-light text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            ¿Compartimos la misma visión?
-          </h2>
-          <p className="text-xl mb-8 font-light">
-            Si crees que tu pyme merece crecer con tecnología de clase mundial,
-            conversemos sobre cómo podemos ayudarte.
-          </p>
-          <Button 
-            onClick={() => setIsContactModalOpen(true)}
-            style={{ backgroundColor: "rgba(6, 5, 22, 1)", color: "#fff" }}
-            className="hover:brightness-90"
-          >
-            <MessageSquare className="w-5 h-5 mr-2" />
-            Iniciemos una conversación
-          </Button>
-        </div>
-      </section>
+        <section className="bg-gradient-to-r from-ti-orange to-ti-orange-light py-16 text-background lg:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+            <Users className="mx-auto mb-5 h-10 w-10" aria-hidden="true" />
+            <h2 className="mb-5 text-3xl font-bold md:text-4xl">
+              Cuéntanos qué proceso está frenando tu negocio
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-lg">
+              Revisamos tu operación y te mostramos dónde la tecnología puede generar el primer resultado visible.
+            </p>
+            <Button
+              variant="secondary"
+              size="xl"
+              className="w-full whitespace-normal text-ti-orange hover:bg-white hover:text-ti-orange-dark sm:w-auto"
+              onClick={() => setIsContactModalOpen(true)}
+            >
+              <MessageSquare className="mr-2 h-5 w-5" aria-hidden="true" />
+              Agenda un diagnóstico gratuito
+            </Button>
+          </div>
+        </section>
+      </main>
 
       <Footer />
 
@@ -248,7 +358,7 @@ const About = () => {
         isOpen={isContactModalOpen}
         onClose={() => {
           setIsContactModalOpen(false);
-          setModalKey(prevKey => prevKey + 1);
+          setModalKey((previousKey) => previousKey + 1);
         }}
         whatsappNumber="+573245770680"
         formspreeId="xpwljjea"

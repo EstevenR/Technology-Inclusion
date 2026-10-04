@@ -36,7 +36,7 @@ export const FormspreeModal = ({
 
   if (state.succeeded) {
     return (
-      <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }} modal={false}>
+      <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
         <DialogContent className="sm:max-w-[425px]">
           <div className="py-6 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
@@ -57,7 +57,7 @@ export const FormspreeModal = ({
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }} modal={false}>
+    <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>

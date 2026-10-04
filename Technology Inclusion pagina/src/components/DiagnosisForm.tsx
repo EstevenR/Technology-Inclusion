@@ -172,7 +172,6 @@ const RenderCheckboxes: React.FC<RenderCheckboxesProps> = ({ fieldName, options,
 
 // --- Componente Principal ---
 const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
-    console.log("DiagnosisForm: Component rendered. isOpen:", isOpen); // Add this
     const navigate = useNavigate();
 
     
@@ -200,7 +199,6 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         if (isOpen) {
-            console.log("DiagnosisForm: isOpen is true. Resetting form.");
             reset(); // Reset the form to its default values
             setCurrentStep(1); // Also reset the step to the first one
         }
@@ -266,10 +264,7 @@ const DiagnosisForm: React.FC<DiagnosisFormProps> = ({ isOpen, onClose }) => {
         <>
             <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                 <div className="relative bg-card text-card-foreground p-8 rounded-lg shadow-lg max-w-2xl w-full flex flex-col max-h-[90vh]">
-                    <Button variant="ghost" size="icon" className="absolute top-4 right-4" onClick={() => {
-                    console.log("DiagnosisForm: Close button clicked.");
-                    onClose();
-                }} aria-label="Cerrar">
+                    <Button variant="ghost" size="icon" className="absolute top-4 right-4" onClick={onClose} aria-label="Cerrar">
                         <X className="h-4 w-4" />
                     </Button>
 

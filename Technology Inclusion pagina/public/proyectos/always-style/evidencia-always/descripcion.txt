@@ -1,0 +1,17 @@
+EVIDENCIA - SITIO WEB ALWAYS · OLWIS STYLE
+URL: https://always-style.netlify.app/
+Fecha de captura: 03/10/2026
+
+¿QUÉ ES EL SITIO?
+Landing page de una sola página para ALWAYS · Olwis Style, marca de bolsos y morrales en cuero vegano de Medellín. Funciona como vitrina digital: muestra la colección y lleva al cliente a comprar por WhatsApp (no tiene carrito ni pasarela de pago). Publicado en Netlify, desarrollado por Technology Inclusion.
+
+¿CÓMO FUNCIONA? (por secciones)
+1. Encabezado: logo de la marca, menú que lleva a cada sección (La semana, Bolsos, Catálogo, Detalles, Campaña) y botón de WhatsApp. (01-inicio-la-semana.jpg)
+2. "Una semana, un bolso para cada día": pestañas de lunes a viernes; cada día propone un outfit con un bolso, texto corto, nombre del producto, color y características, con botones "Comprar por WhatsApp" y "Ver precio en catálogo". Indica envíos a toda Colombia y garantía de 4 meses. (01-inicio-la-semana.jpg)
+3. "Recorre la colección": carrusel con flechas que muestra los productos (Black Work, Sweet Extreme, Duffle Bag, Travel…) con foto, características, precio con descuento y precio anterior tachado, colores disponibles y enlace al catálogo. (02-coleccion-bolsos.jpg)
+4. "La magia está en los detalles": galería de fotos de cerca: capacidad (portátil de 15", termo, ropa), herrajes de acero grabados, cierres con marquilla propia y porta PC acolchado. (03-detalles-1.jpg, 04-detalles-2.jpg)
+5. "Campaña · Colección de lujo, Medellín": galería de fotos de modelos usando los bolsos en distintos ambientes, para reforzar la imagen de marca. (05-campana-1.jpg, 06-campana-2.jpg)
+6. Pie de página: créditos, enlaces a Instagram y TikTok, catálogo y número de contacto. (07-campana-footer.jpg)
+
+CÓMO SE VENDE
+Todos los botones de compra y de catálogo abren el catálogo de WhatsApp Business de la marca, así la venta se cierra en una conversación directa con el cliente.

@@ -7,6 +7,11 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
+    watch: {
+      // Carpeta de capturas estáticas: no necesita hot-reload y OneDrive
+      // deja archivos temporales ahí mientras sincroniza, lo que tumbaba a Vite.
+      ignored: ["**/public/proyectos/**"],
+    },
   },
   plugins: [react()],
   optimizeDeps: {

@@ -143,7 +143,7 @@ export const ConsultationFormComponent: React.FC<ConsultationFormComponentProps>
           <div className="relative">
             <Label htmlFor="preferred_date">Fecha preferida</Label>
             <Input id="preferred_date" type="date" value={formData.preferred_date} onChange={handleChange} required className="pr-10" />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 mt-2 text-white pointer-events-none" size={20} aria-hidden="true" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 mt-2 text-muted-foreground pointer-events-none" size={20} aria-hidden="true" />
           </div>
           <div>
             <Label htmlFor="preferred_time">Hora preferida</Label>

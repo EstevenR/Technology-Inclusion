@@ -9,6 +9,7 @@ import Solutions from "./pages/Solutions";
 import Process from "./pages/Process";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 import ConsultationForm from "./components/ConsultationForm"; // Added this line
 import NotFound from "./pages/NotFound";
 
@@ -19,11 +20,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre-nosotros" element={<About />} />
           <Route path="/soluciones" element={<Solutions />} />
+          <Route path="/proyectos" element={<Projects />} />
           <Route path="/proceso" element={<Process />} />
           <Route path="/precios" element={<Pricing />} />
           <Route path="/contacto" element={<Contact />} />

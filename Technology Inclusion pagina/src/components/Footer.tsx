@@ -13,7 +13,7 @@ const Footer = () => {
                 <img
                   src="/assets/456e6cf6-49e2-4ce7-b5fe-fa940ffcbe9a.png"
                   alt="Technology Inclusion Logo"
-                  className="w-full h-full object-contain filter brightness-0 invert"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <span className="text-xl font-bold">Technology Inclusion</span>
@@ -45,8 +45,17 @@ const Footer = () => {
               <Link to="/soluciones" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
                 Soluciones
               </Link>
+              <Link to="/proyectos" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
+                Proyectos realizados
+              </Link>
               <Link to="/proceso" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
                 Proceso
+              </Link>
+              <Link to="/precios" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
+                Precios
+              </Link>
+              <Link to="/contacto" className="text-muted-foreground hover:text-ti-orange block transition-colors py-1">
+                Contacto
               </Link>
             </div>
           </div>
@@ -57,7 +66,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-ti-orange" />
-                <span className="text-muted-foreground">tecnologyinclusion@gmail.com</span>
+                <span className="text-muted-foreground">contacto@inclusiontecnologica.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-ti-orange" />
